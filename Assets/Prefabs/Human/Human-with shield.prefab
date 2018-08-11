@@ -602,7 +602,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287171531678900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.5332, y: 0.46, z: 0.41408443}
+  m_LocalPosition: {x: 0.38437843, y: -2.3210866, z: 2.7814016}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4733523592248216}
@@ -2042,6 +2042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 50
   minDist: 2
+  canMoveOnWater: 0
+  canMoveOnLand: 1
   selectedIndicator: {fileID: 1380481903099504}
 --- !u!136 &136852324412318620
 CapsuleCollider:

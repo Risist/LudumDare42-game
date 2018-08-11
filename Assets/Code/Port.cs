@@ -5,12 +5,13 @@ using UnityEngine;
 public class Port : MonoBehaviour
 {
 
-    ShipContainer ship;
+    public ShipContainer ship;
     public Transform exitPoint;
 
-    public void ExitUnit()
+    private void Update()
     {
-
+        if (Input.GetKey(KeyCode.R) && ship)
+            ship.ExitUnit(exitPoint);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,16 +21,15 @@ public class Port : MonoBehaviour
             ship = shipContainer;
 
         UnitMovement unit = other.GetComponent<UnitMovement>();
-        if(unit)
+        if(unit && ship && other.gameObject != ship.gameObject)
         {
-            ship.Insert(other.gameObject);
-            other.gameObject.SetActive(false);
+            ship.Insert(unit);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (ship.gameObject == other.gameObject)
+        if (ship && ship.gameObject == other.gameObject)
         {
             ship = null;
         }

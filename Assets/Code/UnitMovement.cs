@@ -6,10 +6,14 @@ public class UnitMovement : MonoBehaviour {
     
     public float movementSpeed;
     public float minDist;
-    
-    
+    public bool canMoveOnWater;
+    public bool canMoveOnLand;
+
+
+
     Rigidbody body;
     Vector3 aim;
+    public void ResetAim() { aim = body.position;  }
 
     private bool selected;
     public GameObject selectedIndicator;
@@ -23,7 +27,7 @@ public class UnitMovement : MonoBehaviour {
     private void Start()
     {
         body = GetComponent<Rigidbody>();
-        aim = body.position;
+        ResetAim();
 
         SetSelected(false);
     }
@@ -57,8 +61,15 @@ public class UnitMovement : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            aim = hit.point;
-            aim.y = body.position.y;
+            bool water = hit.collider.tag == "Water";
+            bool land = hit.collider.tag == "Land";
+            bool port = hit.collider.tag == "Port";
+            if ((water && canMoveOnWater) || (land && canMoveOnLand) || (port) )
+            {
+                aim = hit.point;
+                aim.y = body.position.y;
+            }
+            else ResetAim();
         }
     }
     public static void ResetSelection()

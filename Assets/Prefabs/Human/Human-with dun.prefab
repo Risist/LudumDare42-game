@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 114510933909707934}
   - component: {fileID: 114114430546280942}
   - component: {fileID: 114706894176798742}
+  - component: {fileID: 114619882777394588}
   m_Layer: 0
   m_Name: Human-with dun
   m_TagString: Untagged
@@ -2020,6 +2021,17 @@ MonoBehaviour:
   health: {fileID: 0}
   mind: {fileID: 0}
   movement: {fileID: 0}
+--- !u!114 &114619882777394588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325402017596622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fc5e31bedb97e4bb3e64368f2495e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114626532021918534
 MonoBehaviour:
   m_ObjectHideFlags: 1

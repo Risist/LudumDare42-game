@@ -10,5 +10,6 @@ public class DeathEventSpawn : MonoBehaviour {
 	{
         if(prefab)
 		    Instantiate(prefab, transform.position, transform.rotation );
+        prefab = null;
 	}
 }

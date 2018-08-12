@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 114236516292280116}
   - component: {fileID: 114628394230738850}
   - component: {fileID: 114554768316497610}
+  - component: {fileID: 114563162847501858}
   m_Layer: 0
   m_Name: Human-with shield
   m_TagString: Untagged
@@ -2200,6 +2201,17 @@ MonoBehaviour:
   linearDamping: 1
   angularDamping: 1
   dmgPointOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &114563162847501858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287171531678900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fc5e31bedb97e4bb3e64368f2495e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114628394230738850
 MonoBehaviour:
   m_ObjectHideFlags: 1

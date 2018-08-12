@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 95945296483754332}
   - component: {fileID: 114369138910352624}
   - component: {fileID: 114517311530685404}
+  - component: {fileID: 114236516292280116}
   m_Layer: 0
   m_Name: Human-with shield
   m_TagString: Untagged
@@ -622,7 +623,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287171531678900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1634808, y: -2.3210866, z: 5.963748}
+  m_LocalPosition: {x: 0.38437843, y: -2.3210866, z: 2.7814016}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4733523592248216}
@@ -2105,6 +2106,24 @@ MonoBehaviour:
   objToRemove: {fileID: 0}
   myFraction: {fileID: 114517311530685404}
   instigator: {fileID: 1287171531678900}
+--- !u!114 &114236516292280116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287171531678900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3db3dbb54a78b4d9c63366c14b75e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceModificator: 1
+  blocksVision: 1
+  type: obstacle
+  fraction: {fileID: 0}
+  health: {fileID: 0}
+  mind: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!114 &114302543369429902
 MonoBehaviour:
   m_ObjectHideFlags: 1

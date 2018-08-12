@@ -8,7 +8,6 @@ using UnityEngine;
  */
 public class AiPerception : MonoBehaviour {
     
-    public float addictionalRotation = 0.0f;
     public Timer timerPerformSearch = new Timer();
 	/// how far the field of view goes
 	public float searchDistance = 5.0f;
@@ -44,14 +43,14 @@ public class AiPerception : MonoBehaviour {
 
 	void PerformSearch()
 	{
-        var rays = Physics.SphereCastAll(transform.position, searchDistance,Vector3.up);
+        var rays = Physics.OverlapSphere(transform.position, searchDistance);
 
         foreach (var it in rays)
         {
-            var unit = it.collider.GetComponent<AiPerceiveUnit>();
+            var unit = it.GetComponent<AiPerceiveUnit>();
             if (unit && unit.gameObject != gameObject)
             {
-                insertToMemory(unit, it.distance);
+                insertToMemory(unit, (it.transform.position - transform.position).magnitude);
             }
         }
 
@@ -83,6 +82,7 @@ public class AiPerception : MonoBehaviour {
 			var memoryItem = new MemoryItem();
 			memoryItem.unit = unit;
 			memoryItem.remainedTime = new Timer(memoryTime);
+            memoryItem.remainedTime.restart();
 			memoryItem.lastDistance = distance;
 
 			memory.Add(memoryItem);

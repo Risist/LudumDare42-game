@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 95100987924358554}
   - component: {fileID: 114207423549614274}
   - component: {fileID: 114785586035893536}
+  - component: {fileID: 114510933909707934}
   m_Layer: 0
   m_Name: Human-with dun
   m_TagString: Untagged
@@ -1983,6 +1984,24 @@ MonoBehaviour:
   regeneration: 2
   removeAfterDeath: 1
   objectToRemove: {fileID: 0}
+--- !u!114 &114510933909707934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325402017596622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3db3dbb54a78b4d9c63366c14b75e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceModificator: 1
+  blocksVision: 1
+  type: obstacle
+  fraction: {fileID: 0}
+  health: {fileID: 0}
+  mind: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!114 &114626532021918534
 MonoBehaviour:
   m_ObjectHideFlags: 1

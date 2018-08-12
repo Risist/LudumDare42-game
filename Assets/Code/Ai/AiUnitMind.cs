@@ -80,41 +80,4 @@ public class AiUnitMind : MonoBehaviour
 	[System.NonSerialized]
 	public AiPerception myPerception;
 #endregion Perception
-
-
-
-#region Memory
-    [System.Serializable]
-    public class MemoryItem
-    {
-        public Timer remainedTime;
-        public AiPerceiveUnit unit;
-        public Vector2 lastPosition;
-        public float lastDistance;
-    }
-    [System.NonSerialized]
-    public List<MemoryItem> memory = new List<MemoryItem>();
-
-    public void insertToMemory(AiPerceiveUnit unit, float distance)
-	{
-		bool bFound = false;
-		foreach (var itMemory in memory)
-			if (itMemory.unit == unit)
-			{
-				itMemory.remainedTime.restart();
-				itMemory.lastDistance = distance;
-				bFound = true;
-				break;
-			}
-		if (!bFound)
-		{
-			var memoryItem = new MemoryItem();
-			memoryItem.unit = unit;
-			memoryItem.remainedTime = new Timer(memoryTime);
-			memoryItem.lastDistance = distance;
-
-			memory.Add(memoryItem);
-		}
-	}
-#endregion Memory
 }

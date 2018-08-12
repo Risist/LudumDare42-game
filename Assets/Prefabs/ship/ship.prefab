@@ -904,6 +904,8 @@ GameObject:
   - component: {fileID: 136351804095240014}
   - component: {fileID: 114386556385756606}
   - component: {fileID: 114326686045322898}
+  - component: {fileID: 114685446122292438}
+  - component: {fileID: 114806371100546834}
   m_Layer: 0
   m_Name: ship
   m_TagString: Untagged
@@ -2486,8 +2488,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874352753707204}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 6.42, z: 0}
-  m_LocalScale: {x: 0.48555344, y: 0.48555344, z: 0.48555344}
+  m_LocalPosition: {x: 0, y: 6.74, z: 0}
+  m_LocalScale: {x: 0.74206907, y: 0.7420693, z: 0.7420693}
   m_Children: []
   m_Father: {fileID: 4990890364318106}
   m_RootOrder: 9
@@ -4886,7 +4888,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: aba8fae93b86c7f45baa1a4fd6100156, type: 2}
+  - {fileID: 2100000, guid: 2c10fa379da527540a90878849c4d804, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6007,6 +6009,24 @@ MonoBehaviour:
     cd: 1
   atackDistance: 0
   selectedIndicator: {fileID: 1211279821423074}
+--- !u!114 &114685446122292438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582399262996026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3db3dbb54a78b4d9c63366c14b75e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceModificator: 1
+  blocksVision: 1
+  type: obstacle
+  fraction: {fileID: 0}
+  health: {fileID: 0}
+  mind: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!114 &114744605372531616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6019,6 +6039,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShipContainer: {fileID: 114326686045322898}
+--- !u!114 &114806371100546834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582399262996026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f966943b0e3d6bd40b07a6b0569998f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fractionName: Player
+  friendlyFractions: []
+  enemyFractions: []
 --- !u!135 &135179198375995796
 SphereCollider:
   m_ObjectHideFlags: 1

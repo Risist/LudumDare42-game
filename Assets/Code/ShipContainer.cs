@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class ShipContainer : MonoBehaviour {
+public class ShipContainer : MonoBehaviour
+{
 
     public int maxContained;
+    public int currentContained;
     List<UnitMovement> contained = new List<UnitMovement>();
     public GameObject[] containedIndicator;
 
@@ -55,7 +59,7 @@ public class ShipContainer : MonoBehaviour {
         {
             containedIndicator[i].SetActive(false);
         }
-    }
+        currentContained = contained.Count;
 
-    
+    }
 }

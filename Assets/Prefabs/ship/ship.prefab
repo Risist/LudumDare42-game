@@ -887,6 +887,7 @@ GameObject:
   - component: {fileID: 136351804095240014}
   - component: {fileID: 114386556385756606}
   - component: {fileID: 114326686045322898}
+  - component: {fileID: 114435192639830314}
   m_Layer: 0
   m_Name: ship
   m_TagString: Untagged
@@ -5928,7 +5929,24 @@ MonoBehaviour:
   minDist: 1
   canMoveOnWater: 1
   canMoveOnLand: 0
+  atackCd:
+    cd: 1
+  atackDistance: 0
   selectedIndicator: {fileID: 1874352753707204}
+--- !u!114 &114435192639830314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582399262996026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f966943b0e3d6bd40b07a6b0569998f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fractionName: Player
+  friendlyFractions: []
+  enemyFractions: []
 --- !u!136 &136351804095240014
 CapsuleCollider:
   m_ObjectHideFlags: 1

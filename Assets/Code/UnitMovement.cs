@@ -94,7 +94,7 @@ public class UnitMovement : MonoBehaviour {
             {
                 HealthController hp = hit.collider.GetComponent<HealthController>();
                 AiFraction aiFraction = hit.collider.GetComponent<AiFraction>();
-                if (hp)
+                if (hp && (!aiFraction || fraction.GetAttitude(aiFraction.fractionName) != AiFraction.Attitude.friendly ) )
                 {
                     hpAim = hp;
                     aim = hpAim.transform.position;
@@ -118,7 +118,7 @@ public class UnitMovement : MonoBehaviour {
 
     void AtackUpdate()
     {
-        if (hpAim && atackCd.isReady()) //&& (!fraction || ( aiFraction && fraction.GetAttitude(aiFraction.fractionName) != AiFraction.Attitude.friendly)))
+        if (hpAim && atackCd.isReady())
         {
             Vector3 diff = hpAim.transform.position - transform.position;
             diff.y = 0;

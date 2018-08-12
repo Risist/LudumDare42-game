@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4311636351517344}
+  - component: {fileID: 95852333422801060}
   m_Layer: 0
   m_Name: tree
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   - component: {fileID: 23229591338303856}
   - component: {fileID: 65250516241722324}
   - component: {fileID: 114286253380240150}
+  - component: {fileID: 114996927423323232}
   m_Layer: 0
   m_Name: Palisade
   m_TagString: Untagged
@@ -163,7 +165,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1139310827065552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.678811, y: 0.10000191, z: -7.4590054}
+  m_LocalPosition: {x: 16.95501, y: 0.10000048, z: -0.27428627}
   m_LocalScale: {x: 2.5, y: 2, z: 2.5}
   m_Children:
   - {fileID: 4703748332603472}
@@ -485,6 +487,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95852333422801060
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139310827065552}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dad6c3888b97f834aada6f14e4bab605, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114286253380240150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,5 +519,20 @@ MonoBehaviour:
   actual: 100
   max: 100
   regeneration: 0
-  removeAfterDeath: 1
+  removeAfterDeath: 0
   objectToRemove: {fileID: 1139310827065552}
+--- !u!114 &114996927423323232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604649976752740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3c648b5bb2ef64597fffddaf2ddd98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToDestroy: {fileID: 1139310827065552}
+  pickupPrefab: {fileID: 0}
+  destroyTimer:
+    cd: 1.5

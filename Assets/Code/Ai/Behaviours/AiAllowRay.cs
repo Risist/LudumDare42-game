@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiAllowRay : AiBehaviourBase {
+/*public class AiAllowRay : AiBehaviourBase {
 
 	public AiLocationBase aim;
 	public AiFraction.Attitude attitude = AiFraction.Attitude.none;
@@ -47,4 +47,4 @@ public class AiAllowRay : AiBehaviourBase {
         }
         return true;
 	}
-}
+}*/

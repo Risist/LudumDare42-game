@@ -6,20 +6,22 @@ public class AiBehaviourRotateToAim : AiBehaviourBase
 {
 	public bool update = true;
 	public AiLocationBase aim;
-	Rigidbody2D body;
+	Rigidbody body;
 
 	protected new void Start()
 	{
 		base.Start();
-		body = GetComponentInParent<Rigidbody2D>();
+		body = GetComponentInParent<Rigidbody>();
 	}
 
 	public override bool PerformAction()
 	{
 		if (update)
 		{
-			Vector2 directionOfMove = aim.GetLocation() - body.position;
-			body.rotation = Vector2.Angle(Vector2.up, directionOfMove) * (directionOfMove.x > 0 ? -1 : 1);
+			Vector3 directionOfMove = aim.GetLocation() - body.position;
+            directionOfMove.y = directionOfMove.z;
+            directionOfMove.z = 0;
+            body.rotation = Quaternion.Euler(0, Vector2.Angle(Vector2.up, directionOfMove) * (directionOfMove.x > 0 ? -1 : 1), 0);
 		}
 		return true;
 	}
@@ -27,7 +29,9 @@ public class AiBehaviourRotateToAim : AiBehaviourBase
 	public override void EnterAction()
 	{
 		base.EnterAction();
-		Vector2 directionOfMove = aim.GetLocation() - body.position;
-		body.rotation = Vector2.Angle(Vector2.up, directionOfMove) * (directionOfMove.x > 0 ? -1 : 1);
+		Vector3 directionOfMove = aim.GetLocation() - body.position;
+        directionOfMove.y = directionOfMove.z;
+        directionOfMove.z = 0;
+        body.rotation = Quaternion.Euler(0, Vector2.Angle(Vector2.up, directionOfMove) * (directionOfMove.x > 0 ? -1 : 1), 0);
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiLocationAvoid : AiLocationBase {
+/*public class AiLocationAvoid : AiLocationBase {
 
     public Timer tRecalculate;
     public string typeName;
@@ -10,7 +10,7 @@ public class AiLocationAvoid : AiLocationBase {
     Vector2 holdedInfluence = Vector2.zero;
     public float scale = 1;
 
-    public override Vector2 GetLocation()
+    public override Vector3 GetLocation()
     {
         if(tRecalculate.isReadyRestart())
         {
@@ -27,4 +27,4 @@ public class AiLocationAvoid : AiLocationBase {
 
         return holdedInfluence * scale;
     }
-}
+}*/

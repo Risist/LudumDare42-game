@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiLocationOneOff : AiLocationBase {
+/*public class AiLocationOneOff : AiLocationBase {
 
 	public AiLocationBase[] targetList;
 
@@ -24,14 +24,14 @@ public class AiLocationOneOff : AiLocationBase {
 			}
 		return null;
 	}
-	public override Vector2 GetLocation()
+	public override Vector3 GetLocation()
 	{
 		foreach (var it in targetList)
 			if (it.IsValid())
 			{
 				return it.GetLocation();
 			}
-		return Vector2.zero;
+		return Vector3.zero;
 	}
 
 	public override bool IsValid()
@@ -44,4 +44,4 @@ public class AiLocationOneOff : AiLocationBase {
 		return false;
 	}
 	
-}
+}*/

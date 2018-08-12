@@ -13,9 +13,9 @@ public class AiLocationTransform : AiLocationBase{
 			aim = transform;
 	}
 
-	public override Vector2 GetLocation()
+	public override Vector3 GetLocation()
 	{
-		return base.GetLocation() + (Vector2)aim.position;
+		return base.GetLocation() + aim.position;
 	}
     public override GameObject GetTargetObject()
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiBehaviourSteeringOne : AiBehaviourBase {
+/*public class AiBehaviourSteeringOne : AiBehaviourBase {
 
 	public Transform target;
 	public float minDistance;
@@ -31,4 +31,4 @@ public class AiBehaviourSteeringOne : AiBehaviourBase {
 		Debug.Log("fsfsdfs");
 		return true;
 	}
-}
+}*/

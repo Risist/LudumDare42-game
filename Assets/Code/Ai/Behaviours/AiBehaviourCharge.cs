@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiBehaviourCharge : AiBehaviourBase {
+/*public class AiBehaviourCharge : AiBehaviourBase {
 
 	public AiLocationBase aim;
 	public float movementSpeed;
@@ -16,4 +16,4 @@ public class AiBehaviourCharge : AiBehaviourBase {
 		animator.SetFloat("aimY", aimPos.y);
 		animator.SetFloat("speed", movementSpeed);
 	}
-}
+}*/

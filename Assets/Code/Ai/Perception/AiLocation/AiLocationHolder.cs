@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiLocationHolder : AiLocationBase
+/*public class AiLocationHolder : AiLocationBase
 {
 	public Vector2 location;
 
@@ -11,4 +11,4 @@ public class AiLocationHolder : AiLocationBase
 		return base.GetLocation() + location;
 	}
 
-}
+}*/

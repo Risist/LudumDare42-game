@@ -62,9 +62,11 @@ public class AiLocationTarget : AiLocationBase {
 	{
         return GetTarget() && base.IsValid();
 	}
-	public override Vector2 GetLocation()
+	public override Vector3 GetLocation()
 	{
 		GetTarget();
-		return base.GetLocation() + (target != null ? (Vector2)target.transform.position : Vector2.zero);
+        Vector3 v = (target != null ? target.transform.position : Vector3.zero);
+        v.y = 0;
+        return base.GetLocation() + v;
 	}
 }

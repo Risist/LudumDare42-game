@@ -12,7 +12,9 @@ public class AiBehaviourDistanceFromAim : AiBehaviourBase{
 
 	public override bool CanEnter()
 	{
-		float distanceSq = ((Vector2)transform.position - aim.GetLocation()).sqrMagnitude;
+        Vector3 diff = transform.position - aim.GetLocation();
+        diff.y = 0;
+        float distanceSq = diff.sqrMagnitude;
 		bool b = distanceSq < distanceMax * distanceMax && distanceSq > distanceMin * distanceMin;
 		return inside ? b : !b;
 	}

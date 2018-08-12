@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiBehaviourPlayAnimationDistance : AiBehaviourPlayAnimation {
+/*public class AiBehaviourPlayAnimationDistance : AiBehaviourPlayAnimation {
 
     public AiLocationBase location;
     public float minDistance;
@@ -26,4 +26,4 @@ public class AiBehaviourPlayAnimationDistance : AiBehaviourPlayAnimation {
         }
         return true;
     }
-}
+}*/

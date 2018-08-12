@@ -12,7 +12,7 @@ public abstract class AiLocationBase : MonoBehaviour {
 		mind = GetComponentInParent<AiUnitMind>();
 	}
 
-	public virtual Vector2 GetLocation()
+	public virtual Vector3 GetLocation()
 	{
 		if (addLocation)
 			return addLocation.GetLocation();

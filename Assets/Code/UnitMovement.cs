@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class UnitMovement : MonoBehaviour {
-    
+public class UnitMovement : MonoBehaviour
+{
+
+    public bool useModule = true;
+
     public float movementSpeed;
     public float minDist;
     public bool canMoveOnWater;

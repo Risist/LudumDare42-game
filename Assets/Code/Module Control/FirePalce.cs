@@ -39,7 +39,7 @@ public class FirePalce : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         foreach (var collider in colli)
         {
             var obj = collider.gameObject.GetComponent<UnitMovement>();
-            if (obj)
+            if (obj && obj.useModule)
             {
                 used = true;
                 break;

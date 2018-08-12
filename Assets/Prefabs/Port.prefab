@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 114667245882858094}
   m_Layer: 0
   m_Name: Port
-  m_TagString: Water
+  m_TagString: Port
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -948,8 +948,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 5, z: 1}
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Size: {x: 3, y: 4.18, z: 1}
+  m_Center: {x: 0, y: -0.69, z: 1}
 --- !u!65 &65377697664648334
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1069,5 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bf9e3b0dfc78f4c81972d135e77ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitExitCd:
+    cd: 0.35
   ship: {fileID: 0}
   exitPoint: {fileID: 4260541057273708}

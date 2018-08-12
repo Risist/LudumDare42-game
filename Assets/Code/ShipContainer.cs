@@ -37,6 +37,8 @@ public class ShipContainer : MonoBehaviour {
         obj.transform.rotation = exitPoint.rotation;
 
         obj.gameObject. SetActive(true);
+        obj.ResetAim();
+        obj.SetSelected(false);
         contained.Remove(obj);
 
         UpdateContainedIndicator();

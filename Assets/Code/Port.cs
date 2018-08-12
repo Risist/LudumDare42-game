@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Port : MonoBehaviour
 {
-
+    public Timer UnitExitCd;
     public ShipContainer ship;
     public Transform exitPoint;
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.R) && ship)
+        if (Input.GetKey(KeyCode.R) && ship && UnitExitCd.isReadyRestart() )
             ship.ExitUnit(exitPoint);
     }
 

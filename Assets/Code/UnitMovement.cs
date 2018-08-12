@@ -18,8 +18,11 @@ public class UnitMovement : MonoBehaviour {
     Vector3 aim;
 
     HealthController hpAim;
+    bool movingToAim;
 
-    public void ResetAim() { aim = body.position;  }
+    public void ResetAim() { aim = body.position;
+        movingToAim = false;
+    }
 
     private bool selected;
     public GameObject selectedIndicator;
@@ -56,10 +59,12 @@ public class UnitMovement : MonoBehaviour {
     void PerformMovement()
     {
         Vector3 diff = body.position - aim;
-        if (diff.sqrMagnitude > minDist * minDist)
+        if (movingToAim && diff.sqrMagnitude > minDist * minDist)
         {
-            body.AddForce(-diff.normalized * movementSpeed);     
+            body.AddForce(-diff.normalized * movementSpeed);
         }
+        else
+            movingToAim = false;
 
         float rotation = Vector3.SignedAngle(Vector3.left, diff, Vector3.up);
         body.rotation = Quaternion.Euler(0, rotation, 0);
@@ -79,6 +84,7 @@ public class UnitMovement : MonoBehaviour {
                 aim = hit.point;
                 aim.y = body.position.y;
                 hpAim = null;
+                movingToAim = true;
 
                 return;
             }
@@ -91,6 +97,7 @@ public class UnitMovement : MonoBehaviour {
                     hpAim = hp;
                     aim = hpAim.transform.position;
                     aim.y = body.position.y;
+                    movingToAim = true;
                     return;
                 }
             }
@@ -122,7 +129,7 @@ public class UnitMovement : MonoBehaviour {
 
 
             float rotation = Vector3.SignedAngle(Vector3.left, -diff, Vector3.up);
-            body.rotation = Quaternion.Euler(0, rotation, 0);
+            body.rotation = Quaternion.Euler(0, -rotation, 0);
             return;
         }
     }

@@ -2112,6 +2112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69404ed421c184e4084ead0afdd73e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useModule: 0
   movementSpeed: 30
   minDist: 1
   canMoveOnWater: 0

@@ -8,13 +8,13 @@ public class AiBehaviourMotor : AiBehaviourBase
 	public float movementSpeedMin = 1000.0f;
 	public float movementSpeedMax = 1000.0f;
 	protected float movementSpeed;
-	protected Rigidbody2D body;
+	protected Rigidbody body;
 
 	protected bool bShouldMove;
 	public new void Start()
 	{
 		base.Start();
-		body = GetComponentInParent<Rigidbody2D>();
+		body = GetComponentInParent<Rigidbody>();
 	}
 	public override bool PerformAction()
 	{

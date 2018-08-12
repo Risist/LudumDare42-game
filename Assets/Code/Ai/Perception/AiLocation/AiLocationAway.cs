@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiLocationAway : AiLocationBase {
+/*public class AiLocationAway : AiLocationBase {
 	
 	public float awayDistance;
 	public Transform _transform;
@@ -19,4 +19,4 @@ public class AiLocationAway : AiLocationBase {
 		Vector2 v = ((Vector2)_transform.position - flee);
 		return flee + v.normalized * awayDistance;
 	}
-}
+}*/

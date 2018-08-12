@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiBehaviourMoveTo : AiBehaviourBase
+/*public class AiBehaviourMoveTo : AiBehaviourBase
 {
 	AiMovement movement;
 
@@ -38,4 +38,4 @@ public class AiBehaviourMoveTo : AiBehaviourBase
 		return true;
 	}
 
-}
+}*/

@@ -16,10 +16,11 @@ public class AiBehaviourRandomMovement : AiBehaviourMotor
 
 	public float stopDistance = 1.0f;
 
-	Vector2 destination = Vector2.zero;
+	Vector3 destination = Vector3.zero;
 	void RandDestination()
 	{
-		destination = (Vector2)center.position + Random.insideUnitCircle * Random.Range(radiusMin, radiusMax);
+        Vector2 v = Random.insideUnitCircle * Random.Range(radiusMin, radiusMax);
+        destination = center.position + new Vector3(v.x, 0, v.y);
 	}
 
 	// Use this for initialization
@@ -45,10 +46,12 @@ public class AiBehaviourRandomMovement : AiBehaviourMotor
 			RandDestination();
 		}
 
-		Vector2 directionOfMove = destination - body.position;
+		Vector3 directionOfMove = destination - body.position;
+        directionOfMove.y = directionOfMove.z;
+        directionOfMove.z = 0;
 		if (directionOfMove.sqrMagnitude > stopDistance * stopDistance)
 		{
-			body.rotation = Vector2.Angle(Vector2.up, directionOfMove) * (directionOfMove.x > 0 ? -1 : 1);
+			body.rotation = Quaternion.Euler(0, Vector2.Angle(Vector2.up, directionOfMove) * (directionOfMove.x > 0 ? -1 : 1), 0);
 			bShouldMove = true;
 		}
 

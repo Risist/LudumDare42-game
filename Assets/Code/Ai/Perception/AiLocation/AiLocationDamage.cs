@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiLocationDamage : AiLocationBase {
+/*public class AiLocationDamage : AiLocationBase {
 
 	[Range(0.0f, 1.0f)]
 	public float damping;
@@ -56,4 +56,4 @@ public class AiLocationDamage : AiLocationBase {
 			lastPosition = currentObject.transform.position;
 		}
 	}
-}
+}*/

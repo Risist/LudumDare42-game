@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiBehaviourPlayAnimationAtMove : AiBehaviourPlayAnimation{
+/*public class AiBehaviourPlayAnimationAtMove : AiBehaviourPlayAnimation{
 
     public float minDistance;
     public float maxDistance = float.PositiveInfinity;
@@ -26,4 +26,4 @@ public class AiBehaviourPlayAnimationAtMove : AiBehaviourPlayAnimation{
         }
         return true;
     }
-}
+}*/

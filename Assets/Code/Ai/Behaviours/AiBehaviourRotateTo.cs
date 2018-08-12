@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiBehaviourRotateTo : AiBehaviourBase {
+/*public class AiBehaviourRotateTo : AiBehaviourBase {
 
 	public AiLocationBase aim;
 	public bool update = true;
@@ -37,4 +37,4 @@ public class AiBehaviourRotateTo : AiBehaviourBase {
 		}
 	}
 
-}
+}*/

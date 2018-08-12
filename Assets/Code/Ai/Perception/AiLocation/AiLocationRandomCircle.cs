@@ -11,14 +11,16 @@ public class AiLocationRandomCircle : AiLocationBase {
 	public float recalculateTimeMax = 1.0f;
 	Timer recalculateTimer = new Timer(0);
 
-	Vector2 location = Vector2.zero;
+	Vector3 location = Vector3.zero;
 
-	public override Vector2 GetLocation()
+	public override Vector3 GetLocation()
 	{
 		if(recalculateTimer.isReadyRestart() )
 		{
 			recalculateTimer.cd = Random.Range(recalculateTimeMin, recalculateTimeMax);
 			location = Random.insideUnitCircle * Random.Range(minRadius, maxRadius);
+            location.z = location.y;
+            location.y = 0;
 		}
 
 		return location + base.GetLocation();

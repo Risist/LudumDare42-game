@@ -1175,11 +1175,6 @@ Prefab:
       propertyPath: m_Name
       value: Port (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114892218445787270, guid: 0798441b22502914fa20c6fc78e9827f,
-        type: 2}
-      propertyPath: m_Text
-      value: Leave Ship
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0798441b22502914fa20c6fc78e9827f, type: 2}
   m_IsPrefabParent: 0

@@ -192,6 +192,8 @@ GameObject:
   - component: {fileID: 114369138910352624}
   - component: {fileID: 114517311530685404}
   - component: {fileID: 114236516292280116}
+  - component: {fileID: 114628394230738850}
+  - component: {fileID: 114554768316497610}
   m_Layer: 0
   m_Name: Human-with shield
   m_TagString: Untagged
@@ -623,7 +625,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287171531678900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.38437843, y: -2.3210866, z: 2.7814016}
+  m_LocalPosition: {x: 0.41931725, y: -2.3210866, z: 0.8904276}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4733523592248216}
@@ -2095,7 +2097,7 @@ MonoBehaviour:
   damageEnter:
     damage: 0
   damageStay:
-    damage: -4
+    damage: -2
   damageExit:
     damage: 0
   ignoreTag: noTag
@@ -2117,9 +2119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3db3dbb54a78b4d9c63366c14b75e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceModificator: 1
-  blocksVision: 1
-  type: obstacle
+  land: 1
+  water: 0
+  port: 0
   fraction: {fileID: 0}
   health: {fileID: 0}
   mind: {fileID: 0}
@@ -2135,13 +2137,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b820f793b0d62849b3147364e8756ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 50
+  movementSpeed: 30
   minDist: 1
   canMoveOnWater: 0
   canMoveOnLand: 1
   atackCd:
     cd: 1
   atackDistance: 2
+  resetAimCdMin: 0.25
+  resetAimCdMax: 0.5
   selectedIndicator: {fileID: 1380481903099504}
 --- !u!114 &114369138910352624
 MonoBehaviour:
@@ -2155,8 +2159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 
-  actual: 100
-  max: 100
+  actual: 220
+  max: 220
   regeneration: 2
   removeAfterDeath: 1
   objectToRemove: {fileID: 0}
@@ -2173,7 +2177,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fractionName: Player
   friendlyFractions: []
-  enemyFractions: []
+  enemyFractions:
+  - Enemy
+--- !u!114 &114554768316497610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287171531678900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c524d840eeb5d14a8e5b9a24bbce917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  forceBase: 1000
+  forceScale: 1250
+  forceMax: 4500
+  explosionRadius: 4
+  removeDelay: 1.5
+  mass: 3
+  linearDamping: 1
+  angularDamping: 1
+  dmgPointOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &114628394230738850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287171531678900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b151329888fda4eb706cb56754418a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerPerformSearch:
+    cd: 0.35
+  searchDistance: 3
+  memoryTime: 1
 --- !u!135 &135882508794018906
 SphereCollider:
   m_ObjectHideFlags: 1

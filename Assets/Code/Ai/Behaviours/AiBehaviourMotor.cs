@@ -31,7 +31,7 @@ public class AiBehaviourMotor : AiBehaviourBase
 	public void FixedUpdate()
 	{
 		if (bShouldMove)
-			body.AddForce(body.transform.forward * movementSpeed);
+			body.AddForce(body.transform.right * movementSpeed);
 		bShouldMove = false;
 	}
 

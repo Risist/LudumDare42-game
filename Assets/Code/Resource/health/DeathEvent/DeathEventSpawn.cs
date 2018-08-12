@@ -8,6 +8,7 @@ public class DeathEventSpawn : MonoBehaviour {
 
 	void OnDeath(HealthController.DamageData data)
 	{
-		Instantiate(prefab, transform.position, transform.rotation );
+        if(prefab)
+		    Instantiate(prefab, transform.position, transform.rotation );
 	}
 }

@@ -41,8 +41,7 @@ public class AiLocationTarget : AiLocationBase {
                 {
                     if (CheckRequirements(it))
                     {
-                        target = it.unit;
-                        break;
+                        return target = it.unit;
                     }
                 }
 		}
@@ -52,10 +51,12 @@ public class AiLocationTarget : AiLocationBase {
 
 	bool CheckRequirements(AiPerception.MemoryItem it)
 	{
-		return (attitude == AiFraction.Attitude.none || mind.myFraction.GetAttitude(it.unit.fraction.fractionName) == attitude ) && 
+        return mind.myFraction.GetAttitude(it.unit.fraction.fractionName) == attitude;
+
+            /*.Attitude.none || mind.myFraction.GetAttitude(it.unit.fraction.fractionName) == attitude ) && 
 			it.lastDistance >= distanceMin && it.lastDistance <= distanceMax &&
 			(fractionName == "" || it.unit.fraction.fractionName.Equals(fractionName) )
-			;
+			;*/
 	}
 
 	public override bool IsValid()

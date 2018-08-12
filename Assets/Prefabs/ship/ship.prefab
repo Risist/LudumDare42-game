@@ -5984,6 +5984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxContained: 5
   currentContained: 0
+  inPort: 0
   containedIndicator:
   - {fileID: 1133697585865274}
   - {fileID: 1874664256219862}
@@ -6008,6 +6009,8 @@ MonoBehaviour:
   atackCd:
     cd: 1
   atackDistance: 0
+  resetAimCd:
+    cd: 1
   selectedIndicator: {fileID: 1211279821423074}
 --- !u!114 &114685446122292438
 MonoBehaviour:
@@ -6020,9 +6023,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3db3dbb54a78b4d9c63366c14b75e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceModificator: 1
-  blocksVision: 1
-  type: obstacle
+  land: 0
+  water: 1
+  port: 0
   fraction: {fileID: 0}
   health: {fileID: 0}
   mind: {fileID: 0}
@@ -6052,7 +6055,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fractionName: Player
   friendlyFractions: []
-  enemyFractions: []
+  enemyFractions:
+  - Enemy
 --- !u!135 &135179198375995796
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -6077,4 +6081,4 @@ CapsuleCollider:
   m_Radius: 2
   m_Height: 8
   m_Direction: 0
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 2, z: 0}

@@ -17,6 +17,7 @@ public class AiBehaviourRandomMovement : AiBehaviourMotor
 	public float stopDistance = 1.0f;
 
 	Vector3 destination = Vector3.zero;
+    public float addictionalRotation;
 	void RandDestination()
 	{
         Vector2 v = Random.insideUnitCircle * Random.Range(radiusMin, radiusMax);
@@ -51,7 +52,7 @@ public class AiBehaviourRandomMovement : AiBehaviourMotor
         directionOfMove.z = 0;
 		if (directionOfMove.sqrMagnitude > stopDistance * stopDistance)
 		{
-			body.rotation = Quaternion.Euler(0, Vector2.Angle(Vector2.up, directionOfMove) * (directionOfMove.x > 0 ? -1 : 1), 0);
+			body.rotation = Quaternion.Euler(0, Vector2.Angle(Vector2.up, directionOfMove) * (directionOfMove.x > 0 ? -1 : 1) +addictionalRotation, 0);
 			bShouldMove = true;
 		}
 

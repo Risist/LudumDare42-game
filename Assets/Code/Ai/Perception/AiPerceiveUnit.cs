@@ -8,17 +8,14 @@ using UnityEngine;
  */
 public class AiPerceiveUnit : MonoBehaviour
 {
-	/// <summary>
-	/// modifies how far the agents will perceive the unit
-	/// </summary>
-	public float distanceModificator = 1.0f;
-	public bool blocksVision = true;
-	public string type = "obstacle";
+    public bool land;
+    public bool water;
+    public bool port;
 
-	/// <summary>
-	///  references to useful data
-	/// </summary>
-	public AiFraction fraction;
+    /// <summary>
+    ///  references to useful data
+    /// </summary>
+    public AiFraction fraction;
 	public HealthController health;
 	public AiUnitMind mind;
 	public AiMovement movement;

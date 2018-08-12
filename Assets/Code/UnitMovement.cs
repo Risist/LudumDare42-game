@@ -11,14 +11,18 @@ public class UnitMovement : MonoBehaviour {
     public Timer atackCd;
     public float atackDistance;
 
-    Animator animator;
-    AiFraction fraction;
+    protected Animator animator;
+    protected AiFraction fraction;
+    protected AiPerception perception;
+    protected Timer resetAimCd = new Timer();
+    public float resetAimCdMin;
+    public float resetAimCdMax;
 
-    Rigidbody body;
-    Vector3 aim;
+    protected Rigidbody body;
+    protected Vector3 aim;
 
-    HealthController hpAim;
-    bool movingToAim;
+    protected HealthController hpAim;
+    protected bool movingToAim;
 
     public void ResetAim() { aim = body.position;
         movingToAim = false;
@@ -33,7 +37,7 @@ public class UnitMovement : MonoBehaviour {
         selected = s;
     }
 
-    private void Start()
+    protected void Start()
     {
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody>();
@@ -41,15 +45,109 @@ public class UnitMovement : MonoBehaviour {
         ResetAim();
 
         SetSelected(false);
+        
+        perception = GetComponent<AiPerception>();
     }
 
-    private void Update()
+    protected void Update()
     {
         if (Input.GetButton("Fire2") && selected)
             UpdateAim();
+        else if (resetAimCd.isReadyRestart(resetAimCd.cd))
+        {
+            resetAimCd.cd = Random.Range(resetAimCdMin, resetAimCdMax);
+            AutoTargetSelection();
+            //if (!AutoTargetSelection())
+                //randomMovement();
+        }       
 
         AtackUpdate();
     }
+    protected bool AutoTargetSelection()
+    {
+        if(perception)
+            foreach (var it in perception.memory)
+        {
+            bool canMove = canMoveOnLand && it.unit.land;
+            canMove |= canMoveOnWater && it.unit.water;
+            canMove |= it.unit.port;
+
+            bool hasHealth = it.unit.health;
+            bool validFraction = !it.unit.fraction ||
+                (it.unit.fraction.gameObject != gameObject &&
+                fraction.GetAttitude(it.unit.fraction.fractionName) == AiFraction.Attitude.enemy);
+
+            /*Debug.Log("target selection:" +
+                "\ncanMove = " + canMove +
+                "\nhasHealth = " + hasHealth + 
+                "\nvalidFraction = " + validFraction
+                );*/
+            if (canMove && hasHealth && validFraction)
+            {
+
+                //Debug.Log("found");
+
+                hpAim = it.unit.health;
+                aim = it.unit.transform.position;
+                aim.y = body.position.y;
+                movingToAim = true;
+                return true;
+            }
+        }
+        return false;
+    }
+    protected bool randomMovement(float randomRadiusMin = 3.0f, float randomRadiusMax = 7.0f)
+    {
+        Vector3 target = Random.insideUnitCircle * Random.Range(randomRadiusMin, randomRadiusMax);
+        target.z = target.y; target.y = 0;
+
+        Ray ray = new Ray(body.position + target + Vector3.up * 20, Vector3.down);
+        RaycastHit info;
+        bool b = true;
+        if( Physics.Raycast(ray, out info) )
+        {
+            bool cantMove = info.collider.tag == "Water" && !canMoveOnWater;
+            cantMove |= info.collider.tag == "Land" && !canMoveOnLand;
+
+            if (cantMove)
+                b = false;
+        }
+        if (b)
+        {
+            aim = body.position + target;
+            movingToAim = true;
+            return true;
+        }
+        return false;
+
+
+
+        // check if can move to the position;
+        /*const float validLocationCheckRadius = 2.0f;
+        var coll = Physics.OverlapSphere(body.position + target, validLocationCheckRadius);
+        //var coll = Physics.OverlapBox(body.position + target- Vector3.up*3, new Vector3(validLocationCheckRadius, 5, validLocationCheckRadius));
+
+        bool b = true;
+        foreach (var it in coll)
+        {
+
+            bool cantMove = it.tag == "Water" && !canMoveOnWater;
+            cantMove |= it.tag == "Land" && !canMoveOnLand;
+            if (cantMove)
+            {
+                b = false;
+            }
+        }
+        if(b)
+        {
+            aim = body.position + target;
+            movingToAim = true;
+            return true;
+        }
+        return false;*/
+    }
+
+
 
     private void FixedUpdate()
     {
@@ -68,11 +166,9 @@ public class UnitMovement : MonoBehaviour {
         }
         else
             movingToAim = false;
-
-        
     }
 
-    void UpdateAim()
+    bool UpdateAim()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -88,7 +184,7 @@ public class UnitMovement : MonoBehaviour {
                 hpAim = null;
                 movingToAim = true;
 
-                return;
+                return true;
             }
             else if (animator)
             {
@@ -100,15 +196,16 @@ public class UnitMovement : MonoBehaviour {
                     aim = hpAim.transform.position;
                     aim.y = body.position.y;
                     movingToAim = true;
-                    return;
+                    return true;
                 }
             }
 
             ResetAim();
-
-
         }
+        return false;
     }
+
+
     public static void ResetSelection()
     {
         var objs = Object.FindObjectsOfType<UnitMovement>();
@@ -116,7 +213,7 @@ public class UnitMovement : MonoBehaviour {
             it.SetSelected(false);
     }
 
-    void AtackUpdate()
+    protected void AtackUpdate()
     {
         if (hpAim && atackCd.isReady())
         {
@@ -128,10 +225,6 @@ public class UnitMovement : MonoBehaviour {
                 ResetAim();
                 animator.SetTrigger("Atack");
             }
-
-
-            float rotation = Vector3.SignedAngle(Vector3.left, diff, Vector3.up);
-            body.rotation = Quaternion.Euler(0, -rotation, 0);
             return;
         }
     }

@@ -28,7 +28,7 @@ public class AiPerception : MonoBehaviour {
     private void Start()
     {
         scanTimeBase = timerPerformSearch.cd;
-        timerPerformSearch.cd = scanTimeBase;
+        timerPerformSearch.cd = scanTimeBase;// + Random.value*0.2f;
     }
 
     // Update is called once per frame

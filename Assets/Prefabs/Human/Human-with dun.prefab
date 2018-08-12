@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4352167432197988}
   - component: {fileID: 114626532021918534}
   - component: {fileID: 135979658201560244}
+  - component: {fileID: 135223486881240626}
   m_Layer: 0
   m_Name: dmg
   m_TagString: Untagged
@@ -213,6 +214,8 @@ GameObject:
   - component: {fileID: 114207423549614274}
   - component: {fileID: 114785586035893536}
   - component: {fileID: 114510933909707934}
+  - component: {fileID: 114114430546280942}
+  - component: {fileID: 114706894176798742}
   m_Layer: 0
   m_Name: Human-with dun
   m_TagString: Untagged
@@ -1967,6 +1970,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114114430546280942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325402017596622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b151329888fda4eb706cb56754418a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerPerformSearch:
+    cd: 0.35
+  searchDistance: 3
+  memoryTime: 1
 --- !u!114 &114207423549614274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1995,9 +2013,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3db3dbb54a78b4d9c63366c14b75e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceModificator: 1
-  blocksVision: 1
-  type: obstacle
+  land: 1
+  water: 0
+  port: 0
   fraction: {fileID: 0}
   health: {fileID: 0}
   mind: {fileID: 0}
@@ -2016,7 +2034,7 @@ MonoBehaviour:
   damageEnter:
     damage: 0
   damageStay:
-    damage: -4
+    damage: -6
   damageExit:
     damage: 0
   ignoreTag: noTag
@@ -2027,6 +2045,27 @@ MonoBehaviour:
   objToRemove: {fileID: 0}
   myFraction: {fileID: 114785586035893536}
   instigator: {fileID: 1325402017596622}
+--- !u!114 &114706894176798742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325402017596622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c524d840eeb5d14a8e5b9a24bbce917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  forceBase: 1000
+  forceScale: 1250
+  forceMax: 4500
+  explosionRadius: 4
+  removeDelay: 1.5
+  mass: 3
+  linearDamping: 1
+  angularDamping: 1
+  dmgPointOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114785586035893536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2040,7 +2079,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fractionName: Player
   friendlyFractions: []
-  enemyFractions: []
+  enemyFractions:
+  - Enemy
 --- !u!114 &114945030613068402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2052,14 +2092,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b820f793b0d62849b3147364e8756ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 50
+  movementSpeed: 30
   minDist: 1
   canMoveOnWater: 0
   canMoveOnLand: 1
   atackCd:
     cd: 1
   atackDistance: 2
+  resetAimCdMin: 0.25
+  resetAimCdMax: 0.5
   selectedIndicator: {fileID: 1122340958054804}
+--- !u!135 &135223486881240626
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1019074861760360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0.25, y: 0, z: 0}
 --- !u!135 &135979658201560244
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2070,8 +2124,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.3
+  m_Center: {x: -0.25, y: 0, z: 0}
 --- !u!136 &136032211217673164
 CapsuleCollider:
   m_ObjectHideFlags: 1

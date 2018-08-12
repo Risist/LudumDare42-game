@@ -20,6 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4311636351517344}
   - component: {fileID: 95852333422801060}
+  - component: {fileID: 114572990688625068}
+  - component: {fileID: 114482144551226294}
+  - component: {fileID: 114634847006272788}
+  - component: {fileID: 136083728553632742}
   m_Layer: 0
   m_Name: tree
   m_TagString: Untagged
@@ -54,9 +58,6 @@ GameObject:
   - component: {fileID: 4703748332603472}
   - component: {fileID: 33138666157537294}
   - component: {fileID: 23229591338303856}
-  - component: {fileID: 65250516241722324}
-  - component: {fileID: 114286253380240150}
-  - component: {fileID: 114996927423323232}
   m_Layer: 0
   m_Name: Palisade
   m_TagString: Untagged
@@ -165,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1139310827065552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.95501, y: 0.10000048, z: -0.27428627}
+  m_LocalPosition: {x: 14.845029, y: 0.227, z: 0.90904474}
   m_LocalScale: {x: 2.5, y: 2, z: 2.5}
   m_Children:
   - {fileID: 4703748332603472}
@@ -475,18 +476,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1179220721087620}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65250516241722324
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1604649976752740}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95852333422801060
 Animator:
   serializedVersion: 3
@@ -504,35 +493,66 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114286253380240150
+--- !u!114 &114482144551226294
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1604649976752740}
+  m_GameObject: {fileID: 1139310827065552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c524d840eeb5d14a8e5b9a24bbce917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  forceBase: 1000
+  forceScale: 1000
+  forceMax: 5000
+  explosionRadius: 3
+  removeDelay: 1.5
+  mass: 3
+  linearDamping: 1
+  angularDamping: 1
+  dmgPointOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &114572990688625068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139310827065552}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89d0aa6eb71009e41818fffc6d4f46ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 
-  actual: 100
-  max: 100
+  actual: 600
+  max: 600
   regeneration: 0
-  removeAfterDeath: 0
-  objectToRemove: {fileID: 1139310827065552}
---- !u!114 &114996927423323232
+  removeAfterDeath: 1
+  objectToRemove: {fileID: 0}
+--- !u!114 &114634847006272788
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1604649976752740}
+  m_GameObject: {fileID: 1139310827065552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c3c648b5bb2ef64597fffddaf2ddd98, type: 3}
+  m_Script: {fileID: 11500000, guid: fae3eb0d6f7d5054da9125423759ceb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToDestroy: {fileID: 1139310827065552}
-  pickupPrefab: {fileID: 0}
-  destroyTimer:
-    cd: 1.5
+  prefab: {fileID: 0}
+--- !u!136 &136083728553632742
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139310827065552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.15
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.47, z: 0}

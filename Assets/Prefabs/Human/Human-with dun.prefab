@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 4660919188629982}
   - component: {fileID: 33835376598470696}
   - component: {fileID: 23432344564806676}
+  - component: {fileID: 114765334638477502}
   m_Layer: 0
   m_Name: SelectedIndicator
   m_TagString: Untagged
@@ -799,7 +800,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325402017596622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.74316216, y: -2.3210866, z: 2.8373172}
+  m_LocalPosition: {x: 134.98413, y: 12.920239, z: 484.6006}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4660919188629982}
@@ -2073,11 +2074,23 @@ MonoBehaviour:
   forceScale: 1250
   forceMax: 4500
   explosionRadius: 4
-  removeDelay: 1.5
+  removeDelay: 3
   mass: 3
   linearDamping: 1
   angularDamping: 1
   dmgPointOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &114765334638477502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122340958054804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99ac1d4dc507304bb9ce2b021a3453c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthRenderer: {fileID: 23432344564806676}
 --- !u!114 &114785586035893536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2113,6 +2126,7 @@ MonoBehaviour:
   atackDistance: 2
   resetAimCdMin: 0.25
   resetAimCdMax: 0.5
+  heihtOffset: 0.35
   selectedIndicator: {fileID: 1122340958054804}
 --- !u!135 &135223486881240626
 SphereCollider:

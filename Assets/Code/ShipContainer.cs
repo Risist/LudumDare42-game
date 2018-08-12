@@ -13,6 +13,11 @@ public class ShipContainer : MonoBehaviour
     List<UnitMovement> contained = new List<UnitMovement>();
     public GameObject[] containedIndicator;
 
+    public bool IsEmpty()
+    {
+        return contained.Count == 0;
+    }
+
     private void Start()
     {
         UpdateContainedIndicator();

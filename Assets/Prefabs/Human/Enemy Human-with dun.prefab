@@ -657,7 +657,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1790013485962446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 56.79, y: 0.38, z: 2.36}
+  m_LocalPosition: {x: 153.14, y: 16, z: 489.28387}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4268911967610464}
@@ -822,7 +822,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1696067758998210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.18956, y: 0.45333338, z: -1.26}
+  m_LocalPosition: {x: 0.4, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4382574590889314}
@@ -1957,7 +1957,7 @@ MonoBehaviour:
   forceScale: 1250
   forceMax: 4500
   explosionRadius: 4
-  removeDelay: 1.5
+  removeDelay: 3
   mass: 3
   linearDamping: 1
   angularDamping: 1
@@ -1982,6 +1982,7 @@ MonoBehaviour:
   atackDistance: 2
   resetAimCdMin: 0.25
   resetAimCdMax: 0.5
+  heihtOffset: 0.35
   selectedIndicator: {fileID: 0}
 --- !u!114 &114585374036023646
 MonoBehaviour:

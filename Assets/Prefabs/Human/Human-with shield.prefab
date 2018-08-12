@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 4697145467189576}
   - component: {fileID: 33063302504385074}
   - component: {fileID: 23960635621675248}
+  - component: {fileID: 114436988139443858}
   m_Layer: 0
   m_Name: SelectedIndicator
   m_TagString: Untagged
@@ -626,7 +627,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287171531678900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.41931725, y: -2.3210866, z: 0.8904276}
+  m_LocalPosition: {x: 136.67319, y: 13.262115, z: 483.60324}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4733523592248216}
@@ -2147,6 +2148,7 @@ MonoBehaviour:
   atackDistance: 2
   resetAimCdMin: 0.25
   resetAimCdMax: 0.5
+  heihtOffset: 0.35
   selectedIndicator: {fileID: 1380481903099504}
 --- !u!114 &114369138910352624
 MonoBehaviour:
@@ -2165,6 +2167,18 @@ MonoBehaviour:
   regeneration: 2
   removeAfterDeath: 1
   objectToRemove: {fileID: 0}
+--- !u!114 &114436988139443858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380481903099504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99ac1d4dc507304bb9ce2b021a3453c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthRenderer: {fileID: 23960635621675248}
 --- !u!114 &114517311530685404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2196,7 +2210,7 @@ MonoBehaviour:
   forceScale: 1250
   forceMax: 4500
   explosionRadius: 4
-  removeDelay: 1.5
+  removeDelay: 3
   mass: 3
   linearDamping: 1
   angularDamping: 1

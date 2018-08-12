@@ -14,6 +14,12 @@ public class Port : MonoBehaviour
             ship.ExitUnit(exitPoint);
     }
 
+    public void LeaveShip()
+    {
+        if (ship)
+            ship.ExitUnit(exitPoint);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         ShipContainer shipContainer = other.GetComponent<ShipContainer>();

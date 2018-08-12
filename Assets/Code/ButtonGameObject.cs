@@ -4,49 +4,25 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-public class ButtonGameObject : MonoBehaviour,IPointerClickHandler
+public class ButtonGameObject : MonoBehaviour
 {
-    public ShipContainer ShipContainer;
-    private MeshRenderer filter;
+    
+    private Port port;
+    private Renderer indicator;
+    private GameObject canvas;
 
-    private void Awake()
+    private void Start()
     {
-        filter = GetComponent<MeshRenderer>();
+        port = GetComponentInParent<Port>();
+        indicator = GetComponent<Renderer>();
+        canvas = transform.Find("Canvas").gameObject;
     }
-
     private void Update()
     {
-        if (ShipContainer.currentContained > 0  && ShipContainer.inPort)
-        {
-            filter.enabled = true;
-        }
-        else
-        {
-            filter.enabled = false;
-        }
+        indicator.enabled = port.ship;
+        canvas.SetActive(port.ship && !port.ship.IsEmpty());
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData != null && eventData.clickCount == 1)
-        {
-            Port[] ports = FindObjectsOfType<Port>();
-
-            if (ports == null )
-            {
-                return;
-            }
-
-            foreach (var port in ports)
-            {
-                if (port.ship != null && port.ship == ShipContainer && ShipContainer.currentContained > 0)
-                {
-                    ShipContainer.ExitUnit(port.exitPoint);
-                    break;
-                } 
-            }
-            
-        }
-    }
-
+    
+    
 }

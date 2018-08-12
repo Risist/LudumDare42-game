@@ -2121,6 +2121,7 @@ MonoBehaviour:
   atackDistance: 2
   resetAimCdMin: 0.25
   resetAimCdMax: 0.5
+  heihtOffset: 0.35
   selectedIndicator: {fileID: 0}
 --- !u!114 &114908913767917066
 MonoBehaviour:
@@ -2138,7 +2139,7 @@ MonoBehaviour:
   forceScale: 1250
   forceMax: 4500
   explosionRadius: 4
-  removeDelay: 1.5
+  removeDelay: 3
   mass: 3
   linearDamping: 1
   angularDamping: 1

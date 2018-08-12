@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class UnitMovement : MonoBehaviour {
     
@@ -23,6 +24,7 @@ public class UnitMovement : MonoBehaviour {
 
     protected HealthController hpAim;
     protected bool movingToAim;
+    public float heihtOffset;
 
     public void ResetAim() { aim = body.position;
         movingToAim = false;
@@ -119,32 +121,6 @@ public class UnitMovement : MonoBehaviour {
             return true;
         }
         return false;
-
-
-
-        // check if can move to the position;
-        /*const float validLocationCheckRadius = 2.0f;
-        var coll = Physics.OverlapSphere(body.position + target, validLocationCheckRadius);
-        //var coll = Physics.OverlapBox(body.position + target- Vector3.up*3, new Vector3(validLocationCheckRadius, 5, validLocationCheckRadius));
-
-        bool b = true;
-        foreach (var it in coll)
-        {
-
-            bool cantMove = it.tag == "Water" && !canMoveOnWater;
-            cantMove |= it.tag == "Land" && !canMoveOnLand;
-            if (cantMove)
-            {
-                b = false;
-            }
-        }
-        if(b)
-        {
-            aim = body.position + target;
-            movingToAim = true;
-            return true;
-        }
-        return false;*/
     }
 
 
@@ -161,11 +137,25 @@ public class UnitMovement : MonoBehaviour {
         {
             body.AddForce(-diff.normalized * movementSpeed);
 
+
             float rotation = Vector3.SignedAngle(Vector3.left, diff, Vector3.up);
-            body.rotation = Quaternion.Euler(0, rotation, 0);
+            transform.rotation = Quaternion.Euler(0, rotation, 0);
         }
         else
             movingToAim = false;
+
+
+        float height = transform.position.y;
+
+        RaycastHit info;
+        if (Physics.Raycast(new Ray(body.position + Vector3.up * -1, Vector3.down), out info))
+        {
+            //Debug.Log("dsada " + info.collider.tag);
+            if (info.collider.tag == "Water" || info.collider.tag == "Land")
+                height += -info.distance + heihtOffset;
+        }
+
+        transform.position = new Vector3(transform.position.x, height, transform.position.z);
     }
 
     bool UpdateAim()

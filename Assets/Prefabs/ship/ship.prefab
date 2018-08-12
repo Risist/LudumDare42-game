@@ -1391,7 +1391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1874664256219862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2988,7 +2988,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1582399262996026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9147906, y: -0.15, z: 0.5523734}
+  m_LocalPosition: {x: 125.41151, y: 12.06, z: 482.9808}
   m_LocalScale: {x: 0.6178517, y: 0.6178517, z: 0.6178517}
   m_Children:
   - {fileID: 4599908836580802}
@@ -6009,8 +6009,9 @@ MonoBehaviour:
   atackCd:
     cd: 1
   atackDistance: 0
-  resetAimCd:
-    cd: 1
+  resetAimCdMin: 0
+  resetAimCdMax: 0
+  heihtOffset: 1
   selectedIndicator: {fileID: 1211279821423074}
 --- !u!114 &114685446122292438
 MonoBehaviour:
@@ -6041,7 +6042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de286c94e8fa80549a923b292833394d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShipContainer: {fileID: 114326686045322898}
 --- !u!114 &114806371100546834
 MonoBehaviour:
   m_ObjectHideFlags: 1

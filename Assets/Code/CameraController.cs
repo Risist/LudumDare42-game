@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public float cameraMovementSpeed;
+    public float cameraMouseSpeed;
     public int ignoredSize = 1;
 
     public Vector2 rangeOfZoom = new Vector2(20f, 70f);
@@ -45,7 +46,7 @@ public class CameraController : MonoBehaviour {
             force += new Vector2(0, 1);
         }
 
-        force = force * cameraMovementSpeed;
+        force = force * cameraMouseSpeed * Time.deltaTime;
         offset.x += force.x;
         offset.z += force.y;
         transform.position += offset * Time.deltaTime;

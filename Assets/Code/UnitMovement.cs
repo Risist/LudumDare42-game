@@ -8,11 +8,17 @@ public class UnitMovement : MonoBehaviour {
     public float minDist;
     public bool canMoveOnWater;
     public bool canMoveOnLand;
+    public Timer atackCd;
+    public float atackDistance;
 
-
+    Animator animator;
+    AiFraction fraction;
 
     Rigidbody body;
     Vector3 aim;
+
+    HealthController hpAim;
+
     public void ResetAim() { aim = body.position;  }
 
     private bool selected;
@@ -26,7 +32,9 @@ public class UnitMovement : MonoBehaviour {
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody>();
+        fraction = GetComponent<AiFraction>();
         ResetAim();
 
         SetSelected(false);
@@ -36,6 +44,8 @@ public class UnitMovement : MonoBehaviour {
     {
         if (Input.GetButton("Fire2") && selected)
             UpdateAim();
+
+        AtackUpdate();
     }
 
     private void FixedUpdate()
@@ -64,12 +74,30 @@ public class UnitMovement : MonoBehaviour {
             bool water = hit.collider.tag == "Water";
             bool land = hit.collider.tag == "Land";
             bool port = hit.collider.tag == "Port";
-            if ((water && canMoveOnWater) || (land && canMoveOnLand) || (port) )
+            if ((water && canMoveOnWater) || (land && canMoveOnLand) || (port))
             {
                 aim = hit.point;
                 aim.y = body.position.y;
+                hpAim = null;
+
+                return;
             }
-            else ResetAim();
+            else if (animator)
+            {
+                HealthController hp = hit.collider.GetComponent<HealthController>();
+                AiFraction aiFraction = hit.collider.GetComponent<AiFraction>();
+                if (hp)
+                {
+                    hpAim = hp;
+                    aim = hpAim.transform.position;
+                    aim.y = body.position.y;
+                    return;
+                }
+            }
+
+            ResetAim();
+
+
         }
     }
     public static void ResetSelection()
@@ -79,4 +107,23 @@ public class UnitMovement : MonoBehaviour {
             it.SetSelected(false);
     }
 
+    void AtackUpdate()
+    {
+        if (hpAim && atackCd.isReady()) //&& (!fraction || ( aiFraction && fraction.GetAttitude(aiFraction.fractionName) != AiFraction.Attitude.friendly)))
+        {
+            Vector3 diff = hpAim.transform.position - transform.position;
+            diff.y = 0;
+            if (diff.sqrMagnitude < atackDistance * atackDistance)
+            {
+                atackCd.restart();
+                ResetAim();
+                animator.SetTrigger("Atack");
+            }
+
+
+            float rotation = Vector3.SignedAngle(Vector3.left, -diff, Vector3.up);
+            body.rotation = Quaternion.Euler(0, rotation, 0);
+            return;
+        }
+    }
 }

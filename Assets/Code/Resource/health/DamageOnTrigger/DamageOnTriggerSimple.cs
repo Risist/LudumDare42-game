@@ -24,7 +24,7 @@ public class DamageOnTriggerSimple : MonoBehaviour {
 			instigator = gameObject;
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerEnter(Collider other)
 	{
 		if (myFraction)
 		{
@@ -46,7 +46,7 @@ public class DamageOnTriggerSimple : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerStay2D(Collider2D other)
+	void OnTriggerStay(Collider other)
 	{
 		if(myFraction)
 		{
@@ -62,7 +62,7 @@ public class DamageOnTriggerSimple : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerExit2D(Collider2D other)
+	void OnTriggerExit(Collider other)
 	{
 		if (myFraction)
 		{
@@ -84,7 +84,7 @@ public class DamageOnTriggerSimple : MonoBehaviour {
         }
 	}
 
-	void OnCollisionEnter2D(Collision2D other)
+	void OnCollisionEnter(Collision other)
 	{
 		if (myFraction)
 		{
@@ -106,7 +106,7 @@ public class DamageOnTriggerSimple : MonoBehaviour {
         }
 	}
 
-	void OnCollisionStay2D(Collision2D other)
+	void OnCollisionStay(Collision other)
 	{
 		if (myFraction)
 		{
@@ -122,7 +122,7 @@ public class DamageOnTriggerSimple : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionExit2D(Collision2D other)
+	void OnCollisionExit(Collision other)
 	{
 		if (myFraction)
 		{

@@ -27,8 +27,8 @@ public class HealthController : ResourceController
 	{
 		if (removeAfterDeath && !objectToRemove)
 			objectToRemove = gameObject;
-        if(regeneration == 0)
-            enabled = false;
+        //if(regeneration == 0)
+        //    enabled = false;
 	}
 
 	protected new void Update()

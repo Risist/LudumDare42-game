@@ -9,6 +9,7 @@ public class ShipContainer : MonoBehaviour
 
     public int maxContained;
     public int currentContained;
+    public bool inPort;
     List<UnitMovement> contained = new List<UnitMovement>();
     public GameObject[] containedIndicator;
 
@@ -46,6 +47,22 @@ public class ShipContainer : MonoBehaviour
         contained.Remove(obj);
 
         UpdateContainedIndicator();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Port")
+        {
+            inPort = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Port")
+        {
+            inPort = false;
+        }
     }
 
     void UpdateContainedIndicator()

@@ -16,13 +16,13 @@ public class ButtonGameObject : MonoBehaviour,IPointerClickHandler
 
     private void Update()
     {
-        if (ShipContainer.currentContained == 0)
+        if (ShipContainer.currentContained > 0  && ShipContainer.inPort)
         {
-            filter.enabled = false;
+            filter.enabled = true;
         }
         else
         {
-            filter.enabled = true;
+            filter.enabled = false;
         }
     }
 

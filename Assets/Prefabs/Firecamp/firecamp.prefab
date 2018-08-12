@@ -113,6 +113,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1100800822312114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4755486825350520}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1108857216715004
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +846,7 @@ Transform:
   - {fileID: 4859047494218014}
   - {fileID: 4414222851227510}
   - {fileID: 4939466618469650}
+  - {fileID: 4755486825350520}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -912,6 +928,19 @@ Transform:
   m_Father: {fileID: 4100602648854906}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 12.215, y: -272.442, z: 6.7520003}
+--- !u!4 &4755486825350520
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100800822312114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.82, y: 6.72, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4100602648854906}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4859047494218014
 Transform:
   m_ObjectHideFlags: 1
@@ -1655,7 +1684,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114471712197616926}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114856554029796142}
+        m_MethodName: Recruit_1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114365364123221584
@@ -1744,7 +1784,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Recrut Human: Cost 5 Wood'
+  m_Text: 'Recrut Human-Shield: Cost 5 Wood'
 --- !u!114 &114448960185071422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2215,8 +2255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24b2747b3385c94fa4ef2e07064e473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 0}
-  spawnObj: {fileID: 0}
+  SpawnTransform: {fileID: 4755486825350520}
+  spawnObj: {fileID: 1287171531678900, guid: f2cbe804d85aef24c9b9cf28b719b0d2, type: 2}
   UIFirePlace: {fileID: 1267921183077738}
   ValueUi: {fileID: 114696832787709076}
 --- !u!114 &114881313469748626

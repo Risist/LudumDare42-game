@@ -61,7 +61,7 @@ public class FirePalce : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 currentValue = PickContainer.istance.Wood;
                 if (currentValue >= cost)
                 {
-                    Instantiate(spawnObj, SpawnTransform);
+                    Instantiate(spawnObj, SpawnTransform.position, SpawnTransform.rotation);
                     PickContainer.istance.Wood -= cost;
 
                 }
@@ -71,6 +71,11 @@ public class FirePalce : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 }
                 break;
         }
+    }
+
+    public void Recruit_1()
+    {
+        Recruit(5, PickItems.Wood);
     }
 
     private void ShowMessageInUI(string msg)

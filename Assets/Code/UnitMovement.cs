@@ -62,12 +62,14 @@ public class UnitMovement : MonoBehaviour {
         if (movingToAim && diff.sqrMagnitude > minDist * minDist)
         {
             body.AddForce(-diff.normalized * movementSpeed);
+
+            float rotation = Vector3.SignedAngle(Vector3.left, diff, Vector3.up);
+            body.rotation = Quaternion.Euler(0, rotation, 0);
         }
         else
             movingToAim = false;
 
-        float rotation = Vector3.SignedAngle(Vector3.left, diff, Vector3.up);
-        body.rotation = Quaternion.Euler(0, rotation, 0);
+        
     }
 
     void UpdateAim()
@@ -128,7 +130,7 @@ public class UnitMovement : MonoBehaviour {
             }
 
 
-            float rotation = Vector3.SignedAngle(Vector3.left, -diff, Vector3.up);
+            float rotation = Vector3.SignedAngle(Vector3.left, diff, Vector3.up);
             body.rotation = Quaternion.Euler(0, -rotation, 0);
             return;
         }

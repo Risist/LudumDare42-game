@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour {
 
     public float cameraMovementSpeed;
     public float cameraMouseSpeed;
+    public float scrollSpeed;
     public int ignoredSize = 1;
 
     public Vector2 rangeOfZoom = new Vector2(20f, 70f);
@@ -24,7 +25,7 @@ public class CameraController : MonoBehaviour {
         
         if (Input.GetAxis("Mouse ScrollWheel") != 0f) // forward
         {
-            Camera.main.fieldOfView += (Input.GetAxis("Mouse ScrollWheel") * -15);
+            Camera.main.fieldOfView += (Input.GetAxis("Mouse ScrollWheel") * -scrollSpeed);
             Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView, rangeOfZoom.x, rangeOfZoom.y);
         }
 
@@ -46,7 +47,7 @@ public class CameraController : MonoBehaviour {
             force += new Vector2(0, 1);
         }
 
-        force = force * cameraMouseSpeed * Time.deltaTime;
+        force = force * cameraMouseSpeed;
         offset.x += force.x;
         offset.z += force.y;
         transform.position += offset * Time.deltaTime;

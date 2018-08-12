@@ -533,7 +533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdedae80c2c9891489b9a3f9740bfaa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraMovementSpeed: 10
+  cameraMovementSpeed: 12.5
+  cameraMouseSpeed: 20
+  scrollSpeed: 30
+  ignoredSize: 15
+  rangeOfZoom: {x: 30, y: 75}
 --- !u!1001 &77376778
 Prefab:
   m_ObjectHideFlags: 0
@@ -6198,7 +6202,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1170989132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df73436dac1afeb47838b5bdee2a1891, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a4d773c76163aa46bb0ffa9400b055c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   height: 5
@@ -6253,10 +6257,6 @@ Prefab:
     - target: {fileID: 4548081915793418, guid: 0798441b22502914fa20c6fc78e9827f, type: 2}
       propertyPath: m_RootOrder
       value: 56
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548081915793418, guid: 0798441b22502914fa20c6fc78e9827f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0798441b22502914fa20c6fc78e9827f, type: 2}

@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class AiUnitMovement : UnitMovement {
 
-    void Awake()
-    {
-
-    }
-
     new void Update () {
         if (resetAimCd.isReadyRestart())
         {
@@ -23,6 +18,7 @@ public class AiUnitMovement : UnitMovement {
 
         AtackUpdate();
     }
+
 
 
 }

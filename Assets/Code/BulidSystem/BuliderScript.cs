@@ -8,6 +8,10 @@ public class BuliderScript : MonoBehaviour
     public GameObject port;
     public GameObject palisade;
 
+    public int costBalista;
+    public int costPort;
+    public int costPalisade;
+
 
     public BulidUIDetector BulidUiDetector;
 
@@ -16,7 +20,10 @@ public class BuliderScript : MonoBehaviour
 
     public GameObject IstancedGameObject;
     private UnitMovement cont;
-    private Transform savedPosTransform;
+    public Vector3 offset = new Vector3(-1, 1, -1);
+    
+    bool arriving;
+    int sds = 0;
 
     private void Start()
     {
@@ -29,54 +36,74 @@ public class BuliderScript : MonoBehaviour
     {
         BulidUI.SetActive(BulidUiDetector.showBulidUI);   
         BulidUI.transform.rotation = Quaternion.Euler(138.206f, 167.253f, 170.2f);
-        BulidUI.transform.position = transform.parent.position + new Vector3(0,1,-1);
+        BulidUI.transform.position = transform.parent.position + offset;
 
-        if (IstancedGameObject != null)
+        if (IstancedGameObject )
         {
-            float distacne = 1;
             Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit) && hit.collider.tag == "Land")
             {
 
 
-                var c = IstancedGameObject.GetComponentsInChildren<Collider>();
-                foreach (var coll in c)
+                if (arriving)
                 {
-                    if (coll.enabled)
+                    float distacneSq = (cont.transform.position - IstancedGameObject.transform.position).sqrMagnitude; //Vector3.Distance(cont.transform.position, IstancedGameObject.transform.position);
+                    const float distance_build = 3.0f * 3.0f;
+
+                    Debug.Log(distacneSq);
+                    if (distacneSq < distance_build )
                     {
-                        coll.enabled = false;
+                        IstancedGameObject.SetActive(true);
+
+                        var c = IstancedGameObject.GetComponentsInChildren<Collider>();
+                        foreach (var coll in c)
+                        {
+                            if (coll.enabled)
+                            {
+                                coll.enabled = false;
+                            }
+                        }
+
+
+                        IstancedGameObject = null;
+                        arriving = false;
+                        cont.ResetAim();
+                        sds = 0;
                     }
                 }
-
-                IstancedGameObject.transform.position =hit.point;
-
-                distacne = Vector3.Distance(cont.transform.position, IstancedGameObject.transform.position);
-
-                if (Input.GetKeyDown(KeyCode.Mouse1))
+                else
                 {
-                    savedPosTransform = hit.transform;
-                    cont.SetAim(IstancedGameObject.transform.position);
-                    print(savedPosTransform.position);
-
-                }
-
-             //   print(distacne);
-                if (distacne < 3f && savedPosTransform != null)
-                {
-                    print("Readt");
-                    foreach (var coll in c)
+                    if(sds == 0)
+                        IstancedGameObject.transform.position = hit.point;
+                    else if(sds == 2)
                     {
-                        if (coll.enabled == false)
+                        float rotation = -Mathf.Atan2(
+                                hit.point.z - IstancedGameObject.transform.position.z,
+                                hit.point.x - IstancedGameObject.transform.position.x
+                                ) * Mathf.Rad2Deg;
+                        IstancedGameObject.transform.rotation = Quaternion.Euler(0, rotation, 0);
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
+                    {
+                        if (sds == 1)
                         {
-                            coll.enabled = true;
+                            //
+
+                            IstancedGameObject.transform.position = hit.point;
+                            
+
+                            sds = 2;
+
+                        }
+                        else if (sds == 2)
+                        {
+                            IstancedGameObject.SetActive(false);
+                            arriving = true;
+                            cont.SetAim(IstancedGameObject.transform.position);
                         }
                     }
-                  //  print(savedPosTransform.position);
-                   // IstancedGameObject.transform.position = savedPosTransform.position;
-
-                    IstancedGameObject = null;
-                    savedPosTransform = null;
                 }
             }
         }
@@ -90,22 +117,58 @@ public class BuliderScript : MonoBehaviour
        if (IstancedGameObject != null) return;
         // IstancedGameObject = null;
         IstancedGameObject = Instantiate(balist);
-   }
+        var c = IstancedGameObject.GetComponentsInChildren<Collider>();
+        foreach (var coll in c)
+        {
+            if (coll.enabled)
+            {
+                coll.enabled = false;
+            }
+        }
+        sds = 1;
+
+        PickContainer.istance.Wood -= costBalista;
+    }
 
     //Palsiade
     public void BulidTwo()
     {
         if(IstancedGameObject != null) return;
+        if (PickContainer.istance.Wood < costPalisade) return;
         //IstancedGameObject = null;
         IstancedGameObject = Instantiate(palisade);
+
+        var c = IstancedGameObject.GetComponentsInChildren<Collider>();
+        foreach (var coll in c)
+        {
+            if (coll.enabled)
+            {
+                coll.enabled = false;
+            }
+        }
+        sds = 1;
+        PickContainer.istance.Wood -= costPalisade;
     }
 
     //Port
     public void BulidThree()
     {
         if (IstancedGameObject != null) return;
+        if (PickContainer.istance.Wood < costPort) return;
         //IstancedGameObject = null;
         IstancedGameObject = Instantiate(port);
+
+        var c = IstancedGameObject.GetComponentsInChildren<Collider>();
+        foreach (var coll in c)
+        {
+            if (coll.enabled)
+            {
+                coll.enabled = false;
+            }
+        }
+        sds = 1;
+
+        PickContainer.istance.Wood -= costPort;
     }
 
 }

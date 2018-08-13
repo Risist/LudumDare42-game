@@ -254,7 +254,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Bulid Palisade:
 
-    Cost: 5 Wood'
+    Cost: 10 Wood'
 --- !u!114 &114313783480045666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,9 +355,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Bulid Port:
+  m_Text: 'Bulid Mine:
 
-    Cost: 5 Wood'
+    Cost: 30 Wood'
 --- !u!114 &114639890447836116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -392,7 +392,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Bulid Ballist:
 
-    Cost: 5 Wood'
+    Cost: 20 Wood'
 --- !u!114 &114676991329332814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,13 +458,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9746a20533071e42a066485c00684af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balist: {fileID: 0}
-  port: {fileID: 1514141065675486, guid: 0798441b22502914fa20c6fc78e9827f, type: 2}
+  balist: {fileID: 1549553162832160, guid: af76c3977db9b784cb395eecd16d694f, type: 2}
+  port: {fileID: 1996749858071458, guid: 17cb904cae9d0dc419692e9837682788, type: 2}
   palisade: {fileID: 1669274195960216, guid: 29effa0cc36c55947a69bd4f03e944f8, type: 2}
+  costBalista: 20
+  costPort: 30
+  costPalisade: 10
   BulidUiDetector: {fileID: 114856988993893008}
   BulidUI: {fileID: 1136737281223120}
   changeValueUi: {fileID: 0}
   IstancedGameObject: {fileID: 0}
+  offset: {x: -2.5, y: 3, z: -1}
 --- !u!114 &114828866641460126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -701,7 +705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.51}
+  m_AnchoredPosition: {x: -1.83, y: 0.51}
   m_SizeDelta: {x: 6, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224277325656880102

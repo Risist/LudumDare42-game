@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 633e6aec65f376e40ac37b1fd1438423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgTogainGold: 1000
+  dmgTogainGold: 500
   current: 0
   prefab: {fileID: 1349535094217168, guid: 42cb98f8fa79b2044aaae8b8bca5d367, type: 2}
 --- !u!114 &114239694366441352

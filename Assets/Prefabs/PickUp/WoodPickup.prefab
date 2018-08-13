@@ -591,5 +591,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickItems: 0
-  addonValue: 5
+  addonValue: 7
   isGet: 0

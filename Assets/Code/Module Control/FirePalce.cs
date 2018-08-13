@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System;
+using Random = UnityEngine.Random;
 
 public class FirePalce : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
@@ -54,14 +55,14 @@ public class FirePalce : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public void Recruit(int cost,PickItems pickItems)
     {
         int currentValue = 0;
-
+        Vector3 s = Random.onUnitSphere + Vector3.up * 50 + spawnObj.transform.position;
         switch (pickItems)
         {
             case PickItems.Wood:
                 currentValue = PickContainer.istance.Wood;
                 if (currentValue >= cost)
                 {
-                    Instantiate(spawnObj, SpawnTransform.position, SpawnTransform.rotation);
+                    Instantiate(spawnObj, s, SpawnTransform.rotation);
                     PickContainer.istance.Wood -= cost;
 
                 }

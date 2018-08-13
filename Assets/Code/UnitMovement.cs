@@ -52,6 +52,7 @@ public class UnitMovement : MonoBehaviour
         SetSelected(false);
         
         perception = GetComponent<AiPerception>();
+
     }
 
     protected void Update()

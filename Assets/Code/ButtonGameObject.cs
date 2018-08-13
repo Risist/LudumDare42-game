@@ -20,8 +20,8 @@ public class ButtonGameObject : MonoBehaviour, IPointerEnterHandler, IPointerExi
         ship = GetComponentInParent<ShipContainer>();
         canvas = transform.Find("Canvas").gameObject;
 
-        rotation = transform.rotation;
-        positionOffset = transform.position - transform.parent.position;
+        rotation = Quaternion.Euler(-75,-120,0);//transform.rotation;
+        positionOffset = new Vector3(0.0f,5.0f,2.5f);// transform.position - transform.parent.position;
 
     }
     private void Update()

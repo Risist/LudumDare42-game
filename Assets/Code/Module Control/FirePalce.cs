@@ -8,8 +8,14 @@ using Random = UnityEngine.Random;
 
 public class FirePalce : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
-    public Transform SpawnTransform;
-    public GameObject spawnObj;
+    [System.Serializable]
+    public struct SpawnData
+    {
+        public GameObject prefab;
+        public int woodCost;
+        public int goldCost;
+    }
+    public SpawnData[] spawnOptions;
 
     public GameObject UIFirePlace;
     public ChangeValueUI ValueUi;
@@ -52,37 +58,28 @@ public class FirePalce : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         }
     }
 
-    public void Recruit(int cost,PickItems pickItems)
+    public void Recruit(int id)
     {
-        int currentValue = 0;
-        Vector3 s = Random.onUnitSphere + Vector3.up * 50 + spawnObj.transform.position;
-        switch (pickItems)
-        {
-            case PickItems.Wood:
-                currentValue = PickContainer.istance.Wood;
-                if (currentValue >= cost)
-                {
-                    Instantiate(spawnObj, s, SpawnTransform.rotation);
-                    PickContainer.istance.Wood -= cost;
+        bool b = PickContainer.istance.Wood >= spawnOptions[id].woodCost;
+        b &= PickContainer.istance.Gold >= spawnOptions[id].goldCost;
 
-                }
-                else
-                {
-                    ShowMessageInUI("you do not have enough Wood");
-                }
-                break;
+
+        if (b)
+        {
+            Vector3 s = Random.onUnitSphere * 2.0f + Vector3.up * 50 + transform.position;
+            Instantiate(spawnOptions[id].prefab, s, Quaternion.Euler(0, Random.value, 0));
+
+            PickContainer.istance.Wood -= spawnOptions[id].woodCost;
+            PickContainer.istance.Gold -= spawnOptions[id].goldCost;
         }
     }
 
-    public void Recruit_1()
-    {
-        Recruit(5, PickItems.Wood);
-    }
+    public void Recruit_1() { Recruit(0); }
+    public void Recruit_2() { Recruit(1); }
+    public void Recruit_3() { Recruit(2); }
+    public void Recruit_4() { Recruit(3); }
+    public void Recruit_5() { Recruit(4); }
 
-    private void ShowMessageInUI(string msg)
-    {
-        
-    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {

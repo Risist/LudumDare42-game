@@ -10,7 +10,7 @@ public class ShipContainer : MonoBehaviour
     public int maxContained;
     public int currentContained;
 
-    List<UnitMovement> contained = new List<UnitMovement>();
+    public List<UnitMovement> contained = new List<UnitMovement>();
     public GameObject[] containedIndicator;
 
     public Transform[] exitTransforms;
@@ -24,13 +24,18 @@ public class ShipContainer : MonoBehaviour
 
     private void Start()
     {
-        UpdateContainedIndicator();
         unit = GetComponent<UnitMovement>();
+        foreach(var it in contained)
+        {
+            it.gameObject.SetActive(false);
+            it.ResetAim();
+        }
+        UpdateContainedIndicator();
     }
 
     private void Update()
     {
-        unit.enabled = !IsEmpty();
+        //unit.enabled = !IsEmpty();
     }
 
     public bool Insert(UnitMovement obj)

@@ -37,6 +37,8 @@ public class PickSystem : MonoBehaviour
         {
             case PickItems.Wood:
                 PickContainer.istance.AddWood(pick.addonValue);
+                break;case PickItems.Gold:
+                PickContainer.istance.Gold += pick.addonValue;
                 break;
         }
         Destroy(pick.gameObject);

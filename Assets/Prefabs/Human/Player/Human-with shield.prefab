@@ -195,6 +195,8 @@ GameObject:
   - component: {fileID: 114628394230738850}
   - component: {fileID: 114554768316497610}
   - component: {fileID: 114563162847501858}
+  - component: {fileID: 114213114726796740}
+  - component: {fileID: 114857605665114254}
   m_Layer: 0
   m_Name: Human-with shield
   m_TagString: Unit
@@ -2099,7 +2101,7 @@ MonoBehaviour:
   damageEnter:
     damage: 0
   damageStay:
-    damage: -2
+    damage: -3
   damageExit:
     damage: 0
   ignoreTag: noTag
@@ -2110,6 +2112,26 @@ MonoBehaviour:
   objToRemove: {fileID: 0}
   myFraction: {fileID: 114517311530685404}
   instigator: {fileID: 1287171531678900}
+--- !u!114 &114213114726796740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287171531678900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6b9ea89a22c214182d47adc7855c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 1cc2d6bf6a62c7e4c849bf5d7f8d5b65, type: 3}
+  restartCd:
+    cd: 1
+  pitchBase: 1.2
+  pitchDmgScale: 0
+  pitchRandom: 0.5
+  volumeBase: 0.5
+  volumeDmgScale: 0.01
+  volumeRandom: 0
 --- !u!114 &114236516292280116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2140,13 +2162,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useModule: 1
-  movementSpeed: 30
-  minDist: 1
+  movementSpeed: 20
+  minDist: 0.5
   canMoveOnWater: 0
   canMoveOnLand: 1
   atackCd:
     cd: 1
-  atackDistance: 2
+  atackDistance: 1.25
   resetAimCdMin: 0.25
   resetAimCdMax: 0.5
   heihtOffset: 0.35
@@ -2163,9 +2185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 
-  actual: 220
-  max: 220
-  regeneration: 2
+  actual: 250
+  max: 250
+  regeneration: 6
   removeAfterDeath: 1
   objectToRemove: {fileID: 0}
 --- !u!114 &114436988139443858
@@ -2242,6 +2264,24 @@ MonoBehaviour:
     cd: 0.35
   searchDistance: 3
   memoryTime: 1
+--- !u!114 &114857605665114254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287171531678900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38dc5b30391f44042b54e55ab30be0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d2db8e489539e1f4897b59198199fd55, type: 3}
+  pitchBase: 1.2
+  pitchDmgScale: 0
+  pitchRandom: 0.5
+  volumeBase: 0.5
+  volumeDmgScale: 0.01
+  volumeRandom: 0
 --- !u!135 &135882508794018906
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -211,13 +211,16 @@ public class UnitMovement : MonoBehaviour
     {
         if (hpAim && atackCd.isReady())
         {
-            Vector3 diff = hpAim.transform.position - transform.position;
+            Vector3 diff = transform.position - hpAim.transform.position;
             diff.y = 0;
             if (diff.sqrMagnitude < atackDistance * atackDistance)
             {
                 atackCd.restart();
                 ResetAim();
                 animator.SetTrigger("Atack");
+
+                float rotation = Vector3.SignedAngle(Vector3.left, diff, Vector3.up);
+                transform.rotation = Quaternion.Euler(0, rotation, 0);
             }
             return;
         }

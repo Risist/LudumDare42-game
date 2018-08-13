@@ -7,6 +7,7 @@ public class PickContainer : MonoBehaviour
     public static PickContainer istance;
 
     public int Wood;
+    public int Gold;
 
     private void OnEnable()
     {

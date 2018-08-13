@@ -198,6 +198,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1306568791457398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4902919523454226}
+  - component: {fileID: 114949744797843284}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1378643500583242
 GameObject:
   m_ObjectHideFlags: 1
@@ -516,6 +532,8 @@ GameObject:
   - component: {fileID: 114488454663961420}
   - component: {fileID: 114010068935350378}
   - component: {fileID: 114908913767917066}
+  - component: {fileID: 114560450516657142}
+  - component: {fileID: 114052421490870364}
   m_Layer: 0
   m_Name: Enemy Human-with shield
   m_TagString: Untagged
@@ -759,11 +777,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977256400432660}
   m_LocalRotation: {x: -0, y: 0.98420244, z: -0, w: 0.1770472}
-  m_LocalPosition: {x: 23.279821, y: 0.46000004, z: 0.6426828}
+  m_LocalPosition: {x: 136.68689, y: 11.237219, z: 483.3828}
   m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1.1999999}
   m_Children:
   - {fileID: 4626922668528354}
   - {fileID: 4662464555568666}
+  - {fileID: 4902919523454226}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 159.604, z: 0}
@@ -888,6 +907,19 @@ Transform:
   m_Father: {fileID: 4267775627717084}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: -26.673, y: -8.216001, z: 97.243004}
+--- !u!4 &4902919523454226
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1306568791457398}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4546730621454970}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4909120546475670
 Transform:
   m_ObjectHideFlags: 1
@@ -2026,6 +2058,26 @@ MonoBehaviour:
     cd: 0.25
   searchDistance: 7.5
   memoryTime: 5
+--- !u!114 &114052421490870364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1977256400432660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6b9ea89a22c214182d47adc7855c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 1cc2d6bf6a62c7e4c849bf5d7f8d5b65, type: 3}
+  restartCd:
+    cd: 1
+  pitchBase: 1.2
+  pitchDmgScale: 0
+  pitchRandom: 0.5
+  volumeBase: 0.5
+  volumeDmgScale: 0.01
+  volumeRandom: 0
 --- !u!114 &114253351712006990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2038,9 +2090,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 
-  actual: 220
-  max: 230
-  regeneration: 2
+  actual: 250
+  max: 250
+  regeneration: 4
   removeAfterDeath: 1
   objectToRemove: {fileID: 0}
 --- !u!114 &114461992146014412
@@ -2086,6 +2138,24 @@ MonoBehaviour:
   health: {fileID: 0}
   mind: {fileID: 0}
   movement: {fileID: 0}
+--- !u!114 &114560450516657142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1977256400432660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38dc5b30391f44042b54e55ab30be0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d2db8e489539e1f4897b59198199fd55, type: 3}
+  pitchBase: 1.2
+  pitchDmgScale: 0
+  pitchRandom: 0.5
+  volumeBase: 0.5
+  volumeDmgScale: 0.01
+  volumeRandom: 0
 --- !u!114 &114695413224355002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2114,12 +2184,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useModule: 0
   movementSpeed: 30
-  minDist: 1
+  minDist: 0.5
   canMoveOnWater: 0
   canMoveOnLand: 1
   atackCd:
     cd: 1
-  atackDistance: 2
+  atackDistance: 1.5
   resetAimCdMin: 0.25
   resetAimCdMax: 0.5
   heihtOffset: 0.35
@@ -2145,6 +2215,18 @@ MonoBehaviour:
   linearDamping: 1
   angularDamping: 1
   dmgPointOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &114949744797843284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1306568791457398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae3eb0d6f7d5054da9125423759ceb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1349535094217168, guid: 42cb98f8fa79b2044aaae8b8bca5d367, type: 2}
 --- !u!135 &135340228744536512
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -29,7 +29,15 @@ public class UnitMovement : MonoBehaviour
     protected bool movingToAim;
     public float heihtOffset;
 
-    public void ResetAim() { aim = body.position;
+    public void ResetAim()
+    {
+
+        if (body == null)
+        {
+            body = GetComponent(typeof(Rigidbody))as Rigidbody;
+        }
+
+        aim = body.position;
         movingToAim = false;
     }
 
@@ -42,11 +50,16 @@ public class UnitMovement : MonoBehaviour
         selected = s;
     }
 
+    private void Awake()
+    {
+    }
+
     protected void Start()
     {
         animator = GetComponent<Animator>();
-        body = GetComponent<Rigidbody>();
         fraction = GetComponent<AiFraction>();
+        body = GetComponent<Rigidbody>();
+
         ResetAim();
 
         SetSelected(false);

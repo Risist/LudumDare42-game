@@ -28,7 +28,7 @@ public class ShipContainer : MonoBehaviour
         foreach(var it in contained)
         {
             it.gameObject.SetActive(false);
-            it.ResetAim();
+          //  it.ResetAim();
         }
         UpdateContainedIndicator();
     }

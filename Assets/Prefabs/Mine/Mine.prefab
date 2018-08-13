@@ -1096,8 +1096,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 
-  actual: 10000
-  max: 10000
-  regeneration: 10
+  actual: 5000
+  max: 5000
+  regeneration: 0
   removeAfterDeath: 0
   objectToRemove: {fileID: 0}

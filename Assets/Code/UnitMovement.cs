@@ -12,6 +12,7 @@ public class UnitMovement : MonoBehaviour
     public float minDist;
     public bool canMoveOnWater;
     public bool canMoveOnLand;
+    public bool canAttackOnLand;
     public Timer atackCd;
     public float atackDistance;
 
@@ -87,21 +88,24 @@ public class UnitMovement : MonoBehaviour
         if(perception)
             foreach (var it in perception.memory)
         {
-            bool canMove = canMoveOnLand && it.unit.land;
-            canMove |= canMoveOnWater && it.unit.water;
-            canMove |= it.unit.port;
+            
 
             bool hasHealth = it.unit.health;
             bool validFraction = !it.unit.fraction ||
                 (it.unit.fraction.gameObject != gameObject &&
                 fraction.GetAttitude(it.unit.fraction.fractionName) == AiFraction.Attitude.enemy);
 
-            /*Debug.Log("target selection:" +
-                "\ncanMove = " + canMove +
-                "\nhasHealth = " + hasHealth + 
-                "\nvalidFraction = " + validFraction
-                );*/
-            if (canMove && hasHealth && validFraction)
+                bool canMove = canMoveOnLand && it.unit.land;
+                canMove |= canMoveOnWater && it.unit.water;
+                canMove |= canAttackOnLand && hasHealth && it.unit.land;
+                canMove |= it.unit.port;
+
+                /*Debug.Log("target selection:" +
+                    "\ncanMove = " + canMove +
+                    "\nhasHealth = " + hasHealth + 
+                    "\nvalidFraction = " + validFraction
+                    );*/
+                if (canMove && hasHealth && validFraction)
             {
 
                 //Debug.Log("found");

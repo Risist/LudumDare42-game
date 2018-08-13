@@ -2164,7 +2164,7 @@ MonoBehaviour:
   canMoveOnLand: 1
   atackCd:
     cd: 1
-  atackDistance: 1.75
+  atackDistance: 1.25
   resetAimCdMin: 0.25
   resetAimCdMax: 0.5
   heihtOffset: 0.35

@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
 
+    public static CameraController istance;
     public float cameraMovementSpeed;
     public float cameraMouseSpeed;
     public float scrollSpeed;
@@ -14,9 +17,63 @@ public class CameraController : MonoBehaviour {
     private Vector3 mousePos;
     private Vector2 sizeOfScreen;
     private Vector2 force;
+    public UnitMovement[] all;
+    public int currentCount = 0;
+    public Vector2 off;
+
+    private void OnEnable()
+    {
+        istance = this;
+    }
 
     private void Update()
     {
+        all = FindObjectsOfType<UnitMovement>();
+       // print(all.Length);
+        //all.OrderBy(t => t.useModule);
+     //   all.Reverse();
+
+        int i = 0;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            while (i++ < 1000)
+            {
+                if (all[currentCount].useModule)
+                {
+                    Vector3 pos;
+                    pos = all[currentCount].transform.position;
+                    pos.y = transform.position.y;
+
+                    pos.x += off.x;
+                    pos.z += off.y;
+
+                    transform.position = pos;
+                    currentCount = (currentCount + 1) % all.Length;
+                    break;
+                }
+                else
+                {
+                    currentCount = (currentCount + 1) % all.Length;
+                }
+            }
+        }
+            
+
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //{
+              
+
+            //    if (all[currentCount].useModule)
+            //    {
+                  
+            //    else
+            //    {
+            //        currentCount = 0;
+            //    }
+                
+                
+            //}
+
         Vector3 offset = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical") ) * cameraMovementSpeed;
         
         mousePos = Input.mousePosition;

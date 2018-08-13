@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114872012025605484}
   m_Layer: 0
   m_Name: dmg
-  m_TagString: Untagged
+  m_TagString: Land
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +225,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1669274195960216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 81.567825, y: 12.512452, z: 438.35324}
+  m_LocalPosition: {x: 62.08157, y: 12.083033, z: 477.68323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4522936899462002}
@@ -784,8 +784,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1, z: 1.5}
-  m_Center: {x: 0.5, y: 0, z: 0.25}
+  m_Size: {x: 0.96, y: 3.03, z: 1.5}
+  m_Center: {x: 0.57, y: 0.93, z: 0.25}
 --- !u!65 &65667420933583260
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -839,9 +839,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageEnter:
-    damage: -10
+    damage: -7.5
   damageStay:
-    damage: 0
+    damage: -0.25
   damageExit:
     damage: 0
   ignoreTag: noTag

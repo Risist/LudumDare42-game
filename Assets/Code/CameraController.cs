@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour
     private Vector3 mousePos;
     private Vector2 sizeOfScreen;
     private Vector2 force;
+
     public UnitMovement[] all;
     public int currentCount = 0;
     public Vector2 off;
@@ -28,14 +29,11 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        all = FindObjectsOfType<UnitMovement>();
-       // print(all.Length);
-        //all.OrderBy(t => t.useModule);
-     //   all.Reverse();
 
         int i = 0;
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            all = FindObjectsOfType<UnitMovement>();
             while (i++ < 1000)
             {
                 if (all[currentCount].useModule)
@@ -57,22 +55,6 @@ public class CameraController : MonoBehaviour
                 }
             }
         }
-            
-
-            //if (Input.GetKeyDown(KeyCode.Space))
-            //{
-              
-
-            //    if (all[currentCount].useModule)
-            //    {
-                  
-            //    else
-            //    {
-            //        currentCount = 0;
-            //    }
-                
-                
-            //}
 
         Vector3 offset = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical") ) * cameraMovementSpeed;
         

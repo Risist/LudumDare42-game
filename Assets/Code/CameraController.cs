@@ -42,6 +42,9 @@ public class CameraController : MonoBehaviour
                     pos = all[currentCount].transform.position;
                     pos.y = transform.position.y;
 
+                    UnitMovement.ResetSelection();
+                    all[currentCount].SetSelected(true);
+
                     pos.x += off.x;
                     pos.z += off.y;
 

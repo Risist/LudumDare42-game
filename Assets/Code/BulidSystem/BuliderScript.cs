@@ -25,6 +25,8 @@ public class BuliderScript : MonoBehaviour
     bool arriving;
     int sds = 0;
 
+    int cost;
+
     private void Start()
     {
         //changeValueUi = BulidUI.GetComponent<ChangeValueUI>();
@@ -42,7 +44,7 @@ public class BuliderScript : MonoBehaviour
         {
             Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit) && hit.collider.tag == "Land")
+            if (Physics.Raycast(ray, out hit))
             {
 
 
@@ -61,7 +63,7 @@ public class BuliderScript : MonoBehaviour
                         {
                             if (coll.enabled)
                             {
-                                coll.enabled = false;
+                                coll.enabled = true;
                             }
                         }
 
@@ -85,9 +87,16 @@ public class BuliderScript : MonoBehaviour
                         IstancedGameObject.transform.rotation = Quaternion.Euler(0, rotation, 0);
                     }
 
+                    if(Input.GetKeyDown(KeyCode.Mouse1))
+                    {
+                        Destroy(IstancedGameObject);
+                        arriving = false;
+                        sds = 0;
+                    }
+                    else
                     if (Input.GetKeyDown(KeyCode.Mouse0))
                     {
-                        if (sds == 1)
+                        if (sds == 1 && hit.collider.tag == "Land")
                         {
                             //
 
@@ -102,6 +111,8 @@ public class BuliderScript : MonoBehaviour
                             IstancedGameObject.SetActive(false);
                             arriving = true;
                             cont.SetAim(IstancedGameObject.transform.position);
+
+                            PickContainer.istance.Wood -= cost;
                         }
                     }
                 }
@@ -115,6 +126,7 @@ public class BuliderScript : MonoBehaviour
     public void BulidOne()
    {
        if (IstancedGameObject != null) return;
+        if (PickContainer.istance.Wood < costBalista) return;
         // IstancedGameObject = null;
         IstancedGameObject = Instantiate(balist);
         var c = IstancedGameObject.GetComponentsInChildren<Collider>();
@@ -127,7 +139,7 @@ public class BuliderScript : MonoBehaviour
         }
         sds = 1;
 
-        PickContainer.istance.Wood -= costBalista;
+         cost = costBalista;
     }
 
     //Palsiade
@@ -147,7 +159,7 @@ public class BuliderScript : MonoBehaviour
             }
         }
         sds = 1;
-        PickContainer.istance.Wood -= costPalisade;
+        cost = costPalisade;
     }
 
     //Port
@@ -168,7 +180,7 @@ public class BuliderScript : MonoBehaviour
         }
         sds = 1;
 
-        PickContainer.istance.Wood -= costPort;
+        cost =  costPort;
     }
 
 }

@@ -11,6 +11,6 @@ public class UIControler : MonoBehaviour
     private void Update()
     {
         WoodText.text ="Wood: " + PickContainer.istance.Wood;
-        GoldText.text ="Goold: " + PickContainer.istance.Gold;
+        GoldText.text ="Gold: " + PickContainer.istance.Gold;
     }
 }

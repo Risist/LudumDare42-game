@@ -44,6 +44,7 @@ public class UnitMovement : MonoBehaviour
     }
 
     private bool selected;
+    public bool IsSelected() { return selected; }
     public GameObject selectedIndicator;
     public void SetSelected(bool s)
     {
@@ -226,11 +227,11 @@ public class UnitMovement : MonoBehaviour
 
     protected void AtackUpdate()
     {
-        if (hpAim && atackCd.isReady())
+        if (hpAim && animator && atackCd.isReady())
         {
             Vector3 diff = transform.position - hpAim.transform.position;
             diff.y = 0;
-            if (diff.sqrMagnitude < atackDistance * atackDistance)
+            if (diff.sqrMagnitude < atackDistance * atackDistance )
             {
                 atackCd.restart();
                 ResetAim();

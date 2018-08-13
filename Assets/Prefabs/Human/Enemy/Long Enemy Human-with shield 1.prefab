@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 114560450516657142}
   - component: {fileID: 114052421490870364}
   m_Layer: 0
-  m_Name: Enemy Human-with shield
+  m_Name: Long Enemy Human-with shield 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2056,7 +2056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerPerformSearch:
     cd: 0.25
-  searchDistance: 7.5
+  searchDistance: 35
   memoryTime: 5
 --- !u!114 &114052421490870364
 MonoBehaviour:

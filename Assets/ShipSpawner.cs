@@ -11,6 +11,8 @@ public class ShipSpawner : MonoBehaviour {
     public float minRadius;
     public float maxRadius;
 
+    public float tMaxDecrease = 1.0f;
+
     // Use this for initialization
     void Start () {
         timer.cd = Random.Range(tMin, tMax);
@@ -26,6 +28,10 @@ public class ShipSpawner : MonoBehaviour {
             position.y = 0;
 
             Instantiate(prefab, transform.position + position * raddi, Quaternion.Euler(0, Random.value * 360, 0));
+
+            tMax *= tMaxDecrease;
+            if (tMax < tMin)
+                tMax = tMin;
         }
 	}
 }

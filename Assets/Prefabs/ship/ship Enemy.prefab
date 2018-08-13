@@ -5973,7 +5973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useModule: 0
-  movementSpeed: 27.5
+  movementSpeed: 45
   minDist: 1
   canMoveOnWater: 1
   canMoveOnLand: 0
@@ -5991,8 +5991,8 @@ MonoBehaviour:
   - {fileID: 1722323830546142}
   - {fileID: 1340416079739516}
   prefabs:
-  - {fileID: 1790013485962446, guid: d4b3ddc0663f9bc4085db40a62c02b94, type: 2}
-  - {fileID: 1977256400432660, guid: 6056405a05d77ff4781745aad8bbf775, type: 2}
+  - {fileID: 1790013485962446, guid: 70541371afe931b4e8074a1e0f41721a, type: 2}
+  - {fileID: 1977256400432660, guid: aa16fb38c9c3e3c4fa4d950b98b5efda, type: 2}
   spawnPoint: {fileID: 4360453076695418}
   contained: 3
 --- !u!114 &114419991994702184
@@ -6023,7 +6023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerPerformSearch:
     cd: 1
-  searchDistance: 100
+  searchDistance: 500
   memoryTime: 5
 --- !u!114 &114444115918818746
 MonoBehaviour:
@@ -6039,7 +6039,7 @@ MonoBehaviour:
   type: 
   actual: 600
   max: 600
-  regeneration: 0
+  regeneration: -2
   removeAfterDeath: 1
   objectToRemove: {fileID: 0}
 --- !u!114 &114944959046670636

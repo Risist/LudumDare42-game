@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ArmyManager : MonoBehaviour {
@@ -41,6 +42,12 @@ public class ArmyManager : MonoBehaviour {
             }
 
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(0);
     }
 
     Vector3 GetAim()

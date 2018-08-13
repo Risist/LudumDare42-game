@@ -1099,5 +1099,5 @@ MonoBehaviour:
   actual: 5000
   max: 5000
   regeneration: 0
-  removeAfterDeath: 0
+  removeAfterDeath: 1
   objectToRemove: {fileID: 0}

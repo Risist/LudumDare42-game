@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 4720484637013652}
   - component: {fileID: 54729303132265710}
   - component: {fileID: 136359080777938308}
-  - component: {fileID: 114721404869108550}
+  - component: {fileID: 114305349597527162}
   - component: {fileID: 114158632607920364}
   - component: {fileID: 114419991994702184}
   - component: {fileID: 114444115918818746}
@@ -5961,6 +5961,40 @@ MonoBehaviour:
   health: {fileID: 0}
   mind: {fileID: 0}
   movement: {fileID: 0}
+--- !u!114 &114305349597527162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325060481268590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9deab0cfe0719ff45aaa0982ccc9c9ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useModule: 0
+  movementSpeed: 27.5
+  minDist: 1
+  canMoveOnWater: 1
+  canMoveOnLand: 0
+  atackCd:
+    cd: 1
+  atackDistance: 0
+  resetAimCdMin: 0.5
+  resetAimCdMax: 1
+  heihtOffset: 1
+  selectedIndicator: {fileID: 0}
+  containedIndicators:
+  - {fileID: 1666478051216348}
+  - {fileID: 1635132231582172}
+  - {fileID: 1765569635635750}
+  - {fileID: 1722323830546142}
+  - {fileID: 1340416079739516}
+  prefabs:
+  - {fileID: 1790013485962446, guid: d4b3ddc0663f9bc4085db40a62c02b94, type: 2}
+  - {fileID: 1977256400432660, guid: 6056405a05d77ff4781745aad8bbf775, type: 2}
+  spawnPoint: {fileID: 4360453076695418}
+  contained: 3
 --- !u!114 &114419991994702184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6008,30 +6042,6 @@ MonoBehaviour:
   regeneration: 0
   removeAfterDeath: 1
   objectToRemove: {fileID: 0}
---- !u!114 &114721404869108550
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325060481268590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69404ed421c184e4084ead0afdd73e36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useModule: 0
-  movementSpeed: 35
-  minDist: 0.1
-  canMoveOnWater: 1
-  canMoveOnLand: 0
-  canAttackOnLand: 1
-  atackCd:
-    cd: 1
-  atackDistance: 0
-  resetAimCdMin: 0.5
-  resetAimCdMax: 1
-  heihtOffset: 1
-  selectedIndicator: {fileID: 0}
 --- !u!114 &114944959046670636
 MonoBehaviour:
   m_ObjectHideFlags: 1

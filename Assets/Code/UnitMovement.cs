@@ -12,7 +12,6 @@ public class UnitMovement : MonoBehaviour
     public float minDist;
     public bool canMoveOnWater;
     public bool canMoveOnLand;
-    public bool canAttackOnLand;
     public Timer atackCd;
     public float atackDistance;
 
@@ -97,7 +96,6 @@ public class UnitMovement : MonoBehaviour
 
                 bool canMove = canMoveOnLand && it.unit.land;
                 canMove |= canMoveOnWater && it.unit.water;
-                canMove |= canAttackOnLand && hasHealth && it.unit.land;
                 canMove |= it.unit.port;
 
                 /*Debug.Log("target selection:" +

@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 114563162847501858}
   m_Layer: 0
   m_Name: Human-with shield
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2139,6 +2139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b820f793b0d62849b3147364e8756ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useModule: 1
   movementSpeed: 30
   minDist: 1
   canMoveOnWater: 0

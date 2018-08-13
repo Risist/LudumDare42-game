@@ -9,9 +9,13 @@ public class ShipContainer : MonoBehaviour
 
     public int maxContained;
     public int currentContained;
-    public bool inPort;
+
     List<UnitMovement> contained = new List<UnitMovement>();
     public GameObject[] containedIndicator;
+
+    public Transform[] exitTransforms;
+
+    UnitMovement unit;
 
     public bool IsEmpty()
     {
@@ -21,6 +25,12 @@ public class ShipContainer : MonoBehaviour
     private void Start()
     {
         UpdateContainedIndicator();
+        unit = GetComponent<UnitMovement>();
+    }
+
+    private void Update()
+    {
+        unit.enabled = !IsEmpty();
     }
 
     public bool Insert(UnitMovement obj)
@@ -54,20 +64,29 @@ public class ShipContainer : MonoBehaviour
         UpdateContainedIndicator();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void ExitUnit()
     {
-        if (other.tag == "Port")
+        foreach (var it in exitTransforms)
         {
-            inPort = true;
+            RaycastHit info;
+            if (Physics.Raycast(new Ray(it.position, Vector3.down), out info) && (info.collider.tag == "Land" || info.collider.tag == "Unit"))
+            {
+                ExitUnit(it);
+                return;
+            }
         }
     }
-
-    private void OnTriggerExit(Collider other)
+    public bool CanExit()
     {
-        if (other.tag == "Port")
+        foreach (var it in exitTransforms)
         {
-            inPort = false;
+            RaycastHit info;
+            if (Physics.Raycast(new Ray(it.position, Vector3.down), out info) && (info.collider.tag == "Land" || info.collider.tag == "Unit") )
+            {
+                return true;
+            }
         }
+        return false;
     }
 
     void UpdateContainedIndicator()
@@ -82,6 +101,5 @@ public class ShipContainer : MonoBehaviour
             containedIndicator[i].SetActive(false);
         }
         currentContained = contained.Count;
-
     }
 }

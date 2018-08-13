@@ -6,22 +6,31 @@ using UnityEngine.Events;
 
 public class ButtonGameObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    
-    private Port port;
-    private Renderer indicator;
+
+    ShipContainer ship;
+    //private Renderer indicator;
     private GameObject canvas;
     public ChangeValueUI ValueUi;
 
+    Quaternion rotation;
+    Vector3 positionOffset;
+
     private void Start()
     {
-        port = GetComponentInParent<Port>();
-        indicator = GetComponent<Renderer>();
+        ship = GetComponentInParent<ShipContainer>();
         canvas = transform.Find("Canvas").gameObject;
+
+        rotation = transform.rotation;
+        positionOffset = transform.position - transform.parent.position;
+
     }
     private void Update()
     {
-        indicator.enabled = port.ship;
-        canvas.SetActive(port.ship && !port.ship.IsEmpty());
+        //indicator.enabled = port.ship;
+        canvas.SetActive(!ship.IsEmpty() && ship.CanExit() );
+
+        transform.rotation = rotation;
+        transform.position = transform.parent.position + positionOffset;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

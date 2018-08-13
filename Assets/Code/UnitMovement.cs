@@ -154,7 +154,7 @@ public class UnitMovement : MonoBehaviour
         if (Physics.Raycast(new Ray(body.position + Vector3.up * -1, Vector3.down), out info))
         {
             //Debug.Log("dsada " + info.collider.tag);
-            if (info.collider.tag == "Water" || info.collider.tag == "Land")
+            if (info.collider.tag == "Water" || info.collider.tag == "Land" || info.collider.tag == "Unit")
                 height += -info.distance + heihtOffset;
         }
 

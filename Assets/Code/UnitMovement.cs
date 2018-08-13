@@ -29,6 +29,8 @@ public class UnitMovement : MonoBehaviour
     protected bool movingToAim;
     public float heihtOffset;
 
+    public void SetAim(Vector3 s) { aim = s; movingToAim = true; }
+
     public void ResetAim()
     {
 

@@ -53,16 +53,18 @@ public class BuliderScript : MonoBehaviour
                     float distacneSq = (cont.transform.position - IstancedGameObject.transform.position).sqrMagnitude; //Vector3.Distance(cont.transform.position, IstancedGameObject.transform.position);
                     const float distance_build = 3.0f * 3.0f;
 
-                    Debug.Log(distacneSq);
+                    //Debug.Log(distacneSq);
                     if (distacneSq < distance_build )
                     {
                         IstancedGameObject.SetActive(true);
 
-                        var c = IstancedGameObject.GetComponentsInChildren<Collider>();
+                        IstancedGameObject.GetComponent<Collider>().enabled = true;
+                        var c = IstancedGameObject.GetComponentsInChildren<Collider>(true);
                         foreach (var coll in c)
                         {
                             if (coll.enabled)
                             {
+                                print(coll);
                                 coll.enabled = true;
                             }
                         }
@@ -76,7 +78,7 @@ public class BuliderScript : MonoBehaviour
                 }
                 else
                 {
-                    if(sds == 0)
+                    if(sds == 0 || sds == 1)
                         IstancedGameObject.transform.position = hit.point;
                     else if(sds == 2)
                     {
@@ -84,7 +86,7 @@ public class BuliderScript : MonoBehaviour
                                 hit.point.z - IstancedGameObject.transform.position.z,
                                 hit.point.x - IstancedGameObject.transform.position.x
                                 ) * Mathf.Rad2Deg;
-                        IstancedGameObject.transform.rotation = Quaternion.Euler(0, rotation, 0);
+                        IstancedGameObject.transform.rotation = Quaternion.Euler(0, rotation + -90, 0);
                     }
 
                     if(Input.GetKeyDown(KeyCode.Mouse1))
@@ -129,6 +131,7 @@ public class BuliderScript : MonoBehaviour
         if (PickContainer.istance.Wood < costBalista) return;
         // IstancedGameObject = null;
         IstancedGameObject = Instantiate(balist);
+       IstancedGameObject.GetComponent<Collider>().enabled = false;
         var c = IstancedGameObject.GetComponentsInChildren<Collider>();
         foreach (var coll in c)
         {
@@ -150,6 +153,8 @@ public class BuliderScript : MonoBehaviour
         //IstancedGameObject = null;
         IstancedGameObject = Instantiate(palisade);
 
+        IstancedGameObject.GetComponent<Collider>().enabled = false;
+
         var c = IstancedGameObject.GetComponentsInChildren<Collider>();
         foreach (var coll in c)
         {
@@ -169,6 +174,8 @@ public class BuliderScript : MonoBehaviour
         if (PickContainer.istance.Wood < costPort) return;
         //IstancedGameObject = null;
         IstancedGameObject = Instantiate(port);
+
+        IstancedGameObject.GetComponent<Collider>().enabled = false;
 
         var c = IstancedGameObject.GetComponentsInChildren<Collider>();
         foreach (var coll in c)
